@@ -1,7 +1,8 @@
-chatApp.controller('UserListController',
-    function UserListController($scope, $routeParams, ChatService) {
+chatApp.controller('ChatController',
+    function ChatController($scope, $routeParams, ChatService) {
 
 		$scope.users = [];
+		$scope.messages = [];
 
 		refreshUsers = function() {
 			ChatService
@@ -9,10 +10,6 @@ chatApp.controller('UserListController',
 				.success(function(users) {
 					$scope.users = users;
 				});
-		};
-
-		 $scope.openChat = function(user) {
-			console.log(user);
 		};
 
 		refreshUsers();

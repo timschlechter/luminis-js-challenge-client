@@ -1,12 +1,18 @@
 var chatApp = angular.module('chatApp', ['ngResource']);
 
-chatApp.chatServiceUrl = 'http://planetmarrs.xs4all.nl:8787/server';
+chatApp.chatServiceUrl = 'http://luminisjschallenge.herokuapp.com/';
 
+// Routes
 chatApp.config(function($routeProvider) {
 
   $routeProvider.
       when('/', {
-        controller: 'UserListController',
-        templateUrl: 'views/userlist.html'
+        controller: 'ChatController',
+        templateUrl: 'views/Chat.html'
       });
 });
+
+// Workaround to allow Cross Domain Request
+chatApp.config(['$httpProvider', function($httpProvider) {
+	delete $httpProvider.defaults.headers.common["X-Requested-With"];
+}]);
