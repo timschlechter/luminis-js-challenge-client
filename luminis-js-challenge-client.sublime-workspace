@@ -1,0 +1,1789 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"star",
+				"startContainer"
+			],
+			[
+				"magic",
+				"magicline"
+			],
+			[
+				"child",
+				"childNode"
+			],
+			[
+				"exis",
+				"existingKopNr"
+			],
+			[
+				"contin",
+				"containerGroups"
+			],
+			[
+				"curr",
+				"currGroup"
+			],
+			[
+				"end",
+				"endOffset"
+			],
+			[
+				"rang",
+				"rangeSnapShot"
+			],
+			[
+				"fir",
+				"firstChild"
+			],
+			[
+				"st",
+				"startContainer"
+			],
+			[
+				"sta",
+				"startContainer"
+			],
+			[
+				"start",
+				"startContainer"
+			],
+			[
+				"parentN",
+				"parentNode"
+			],
+			[
+				"schema",
+				"schemaLoading"
+			],
+			[
+				"tgroup",
+				"tgroupElt"
+			],
+			[
+				"col",
+				"colgroupView"
+			],
+			[
+				"parse",
+				"parsedWidth"
+			],
+			[
+				"par",
+				"parseColumnWidth"
+			],
+			[
+				"pars",
+				"parsedWidths"
+			],
+			[
+				"getT",
+				"getTotalWidth"
+			],
+			[
+				"max",
+				"maxParsedWidth"
+			],
+			[
+				"total",
+				"totalWidth"
+			],
+			[
+				"column",
+				"columnWidths"
+			],
+			[
+				"colu",
+				"columnWidths"
+			],
+			[
+				"R",
+				"RANGE_END"
+			],
+			[
+				"test",
+				"testcase"
+			],
+			[
+				"selected",
+				"selectedElement"
+			],
+			[
+				"exe",
+				"expected"
+			],
+			[
+				"V",
+				"validator"
+			],
+			[
+				"va",
+				"validator"
+			],
+			[
+				"d",
+				"defaultChildren"
+			],
+			[
+				"defaul",
+				"defaultChildren"
+			],
+			[
+				"T",
+				"TBody"
+			],
+			[
+				"P",
+				"PuMaElement"
+			],
+			[
+				"def",
+				"definition"
+			],
+			[
+				"Pum",
+				"PuMaElement"
+			],
+			[
+				"cre",
+				"createElement"
+			],
+			[
+				"c",
+				"createValidElement"
+			],
+			[
+				"formule",
+				"formuletekst"
+			],
+			[
+				"elem",
+				"elementName"
+			],
+			[
+				"side",
+				"sidebarTemplate"
+			],
+			[
+				"getC",
+				"getColSpecs"
+			],
+			[
+				"exp",
+				"expectedResult"
+			],
+			[
+				"refe",
+				"referenceColSpec"
+			],
+			[
+				"create",
+				"createElement"
+			],
+			[
+				"norm",
+				"normalizedRows"
+			],
+			[
+				"ent",
+				"entryAbove"
+			],
+			[
+				"merg",
+				"mergeEntryDown"
+			],
+			[
+				"M",
+				"mergeDown"
+			],
+			[
+				"en",
+				"entryAbove"
+			],
+			[
+				"getE",
+				"getEntryAbove"
+			],
+			[
+				"ref",
+				"refreshStructure"
+			],
+			[
+				"no",
+				"normalizedRows"
+			],
+			[
+				"normaliz",
+				"normalizedRow"
+			],
+			[
+				"remove",
+				"removeChild"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"canM",
+				"canMergeUp"
+			],
+			[
+				"can",
+				"canMergeDown"
+			],
+			[
+				"getRow",
+				"getRowSpan"
+			],
+			[
+				"nor",
+				"normalizedRow"
+			],
+			[
+				"selecte",
+				"selectedEntry"
+			],
+			[
+				"sele",
+				"selectedEntry"
+			],
+			[
+				"Tab",
+				"TableModifier"
+			],
+			[
+				"at",
+				"attributes"
+			],
+			[
+				"attri",
+				"attributeName"
+			],
+			[
+				"get",
+				"getRow"
+			],
+			[
+				"e",
+				"jasmineEnv"
+			],
+			[
+				"protot",
+				"prototype"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"entr",
+				"entryIdx"
+			],
+			[
+				"row",
+				"rowIdx"
+			],
+			[
+				"thead",
+				"theadElement"
+			],
+			[
+				"nam",
+				"nameend"
+			],
+			[
+				"table",
+				"tablehelper"
+			],
+			[
+				"nex",
+				"nextSibling"
+			],
+			[
+				"referenceN",
+				"referenceNode"
+			],
+			[
+				"ne",
+				"nextSibling"
+			],
+			[
+				"comm",
+				"commandArg"
+			],
+			[
+				"isIn",
+				"isInsertAfterValid"
+			],
+			[
+				"isI",
+				"isInsertBeforeValid"
+			],
+			[
+				"re",
+				"referenceNode"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 1847,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "script/controllers.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/tim/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 13149,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "styles/styles.less",
+			"settings":
+			{
+				"buffer_size": 349,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Build editor for AS",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"calst",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"git bla",
+				"Git: Blame"
+			],
+			[
+				"git b",
+				"Git: Blame"
+			],
+			[
+				"git",
+				"Git: Diff All"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"linter",
+				"SublimeLinter: Extract Annotations"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 227.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/tim/Library/Application Support/Sublime Text 2/Packages/User/JSON.sublime-settings",
+		"/Users/tim/Sites/Dropbox/Code/GitHub/luminis-js-challenge-client/script/lib/jquery-1.9.1.min.js",
+		"/C/Users/Tim/Documents/IISExpress/config/applicationhost.config",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/pumaeditor.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/testacular.bootstrap.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/testacular.config.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/magicline.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/tables/tableinsertcommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/Reproduced_bugs.TopDesk.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/dom/pumadocument.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/debug/selectionview.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/debug/debugtemplate.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/magicline.template.htm",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/style/content/magicline.less",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/templates/noot.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/pumabaseflow.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/magicline.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/pumaeditablecontenttemplate.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/pumacontenttemplate.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/utils/calstablehelper.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/templates/viewdocument.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/pumatestutils.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/testutils.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/specs.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/commandtesthelper.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/Reproduced_bugs.OnTime.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/Reproduced_bugs.Unregistered.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/Reproduced_bugs.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/dom/table/Merge_entry.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/delete/deletecommand.lijst.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/dom/item.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/flow/commands/deletecommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/lib/jasmine.async.min.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/index.html",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/index.bootstrap.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/editor/util/domhelper.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/presentation/viewdocument.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/util/domhelper.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/tables",
+		"/C/Users/Tim/Documents/Liones/AuthoringSuite/Types/Editor/Editor.htm",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/style/layout.less",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/data/schema.json",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/schema.json",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/pumacommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/lijsten/converttolijstcommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/lijsten/lijstapplycommand.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/pumatemplate.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/pumaview.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/coverage/Chrome 25.0 (Mac)/puma/commands/verwijzingen.js.html",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/coverage/Chrome 25.0 (Mac)/puma/commands/lijsten/converttolijstcommand.js.html",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/lijsten/itemindentcommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/lijsten/itemindentcommand.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/flow/commandmanager.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/testacular.run.cmd",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/.gitignore",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/testacular.conf.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/specrunner.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/integration/editorapi.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/lijsten.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/pumacommands.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/tables/tablecommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/index.config.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/lijsten/indentcommand.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/indentcommand.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/lijsten/indentcommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/flow/commands/indentcommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/document/dom/util.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/presentation/editableview.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/style/content/table.less",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/style/content/noot.less",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/flow/baseflow.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/flow/commands/newlinecommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/newlinecommand.tests.js",
+		"/C/Users/Tim/AppData/Roaming/Sublime Text 2/Packages/Git/Git.sublime-settings",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/lijsten/lijstinsertcommand.js",
+		"/C/Users/Tim/AppData/Roaming/Sublime Text 2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/C/Users/Tim/AppData/Roaming/Sublime Text 2/Packages/User/JSON.sublime-settings",
+		"/C/Users/Tim/AppData/Roaming/Sublime Text 2/Packages/User/Git.sublime-settings",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/index.html",
+		"/C/Users/Tim/AppData/Roaming/Sublime Text 2/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/bootstrap/css/bootstrap.css",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/util/eventemitter.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/wrappingcommand.splittable.noncollapsed.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/wrappingcommand.splittable.collapsed.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/delete/deletecommand.nonsplittable.collapsedrange.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/build/as-editor.min.js.src",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/subinsertcommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/document/dom/selection/range.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/wrappingcommand.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/wrappingcommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/document/dom/node.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/subinsertcommand.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/blockinsertcommand.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/commands/citaten/citaatinsertcommand.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/style/content/modes/tekst.less",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/style/content/modes/tekst/sectioning.less",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/style/content/modes/tekst/placeholders.less",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/editor.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/document/editdocument.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/flow/input/dominputdetector.js",
+		"/C/Users/Tim/Documents/Liones/AuthoringSuite/Styles/bootstrap-customizations/pagination.less",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/tables/columnsetwidths.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/templates/index.html",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/integration/developmentbackend.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/document/validation/validator.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/dom/table/Table.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/testacular.start.cmd",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/commands/tables.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/main.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/style/normalize.less",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/text.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/dom/table/Alignment_of_entry.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/editor/document/validation/validator.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/spec/puma/dom/table/Border_of_entry.tests.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/lib/jsxml-amd.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/lib/jsxml/jsxml.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/templates/metadata.template.htm",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/lib/text.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/testacular.conf.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/templates/colspec.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/editor/presentation/template.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/templates/tgroup.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/templates/categories.json",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/templates/categories/Tabellen/Breedte in ster.xml",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/test/templates/categories/Tabellen/Breedte in percentages.xml",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/templates/trgoup.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/dom/tgroup.js",
+		"/C/Users/Tim/Dropbox/GitHub/Editor/script/puma/dom/colspec.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"",
+			"C:\\Users\\Tim\\Documents\\GitHub\\Editor\\test",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"tab",
+			"html",
+			"site",
+			"Editor",
+			">>",
+			"select",
+			"range",
+			"24190",
+			"refreshStructure",
+			"rangem",
+			"this.",
+			"this",
+			"reproduced bugs",
+			"lijst",
+			"createContainerGroups",
+			"getSelectedLijstContainers",
+			"filterc",
+			"convertContainer",
+			"getSelectedElements",
+			"convertContainer",
+			"firstContainer",
+			"ablok",
+			"newABlok",
+			"filterChildren",
+			"convertContainer",
+			"convertContainers",
+			"call",
+			"convertCon",
+			"convertContainer",
+			"convertContainers",
+			"convertContainer",
+			"command",
+			"getSelectedLijstContainers",
+			"selectedContainers",
+			"getPossibleContainers",
+			"isPossibleItemContentElement",
+			"getPossibleItemContents",
+			"filterChildren",
+			"jasmineEnv",
+			"log.push",
+			"ctrl",
+			"ctrl/cm",
+			"nadrukinsertcommand",
+			"snaps",
+			"Command",
+			"IndentCommand",
+			"DeleteCommand",
+			"this",
+			"settimeout",
+			"<kopnr>{RANGE_START}{RANGE_EN",
+			"block (item)",
+			"kader",
+			".table",
+			"console =",
+			"clone",
+			"position.skip",
+			"iste",
+			"oldRange",
+			"wrapRange",
+			"splitt",
+			"istextnod",
+			"wrapRange",
+			"wrapNodes",
+			"wrapRange",
+			"helper",
+			"firstTextNode",
+			"24351",
+			"istextnode",
+			"24351",
+			"2435",
+			"24351",
+			"24352",
+			"shift+",
+			"'newline'",
+			"NewLineCommand",
+			".select",
+			"range",
+			"inputdet",
+			"inpu",
+			"consol",
+			"candidate fo",
+			"mutations for",
+			"console.log",
+			"getjson",
+			"getjs",
+			"schema",
+			"schema.json",
+			"loaddocument",
+			"jsxml-a",
+			"data/",
+			"loadDocument",
+			"selectionview",
+			"selectionview.js",
+			"tabel",
+			"TableSetHeaderRowsCommand",
+			"testColumnWidths",
+			"Uitlijning",
+			"koppen",
+			"inline",
+			"splittable",
+			"schema.json",
+			"end",
+			"followed",
+			"tests",
+			",\n",
+			"-",
+			"elementName",
+			"gridGutterWidth",
+			"MUTATIONS FOR COMMAND",
+			"MutationObserver",
+			"rangy",
+			"DomInputDetector",
+			"'newline'",
+			"NewLineCommand",
+			"rangy",
+			"resolve",
+			"resol",
+			"CitaatInsertCommand",
+			"CitaatBlockInsertCommand",
+			"			<ablok>34",
+			"canbeemppty",
+			"behaviour",
+			"definition",
+			"Definition",
+			"definition",
+			"canBeEmpty",
+			"[                           ] ",
+			"behaviour"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'",
+			"lib/bootstrap/",
+			"  ",
+			"</entry>",
+			"<a></a>",
+			"http://twitter.github.com/bootstrap/assets/",
+			"http://twitter.github.com/bootstrap/assets/js/",
+			"right: ",
+			"left : ",
+			"below: ",
+			"yes",
+			"no",
+			"above: yes",
+			"above: no",
+			"above: yes",
+			"this.normalizedRows",
+			"3",
+			"2",
+			"1",
+			"0",
+			"\\t",
+			"\n);",
+			"TableInsertCommand"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 1847,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1119,
+								1119
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 92.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "script/controllers.js",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/tim/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 13149,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8802,
+								8802
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "styles/styles.less",
+					"settings":
+					{
+						"buffer_size": 349,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								302,
+								302
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"pumaedit",
+				"script/puma/pumaeditor.js"
+			],
+			[
+				"magicline",
+				"script/test/spec/puma/magicline.tests.js"
+			],
+			[
+				"tableins",
+				"script/puma/commands/tables/tableinsertcommand.js"
+			],
+			[
+				"pumado",
+				"script/puma/dom/pumadocument.js"
+			],
+			[
+				"topde",
+				"script/test/spec/Reproduced_bugs.TopDesk.tests.js"
+			],
+			[
+				"pumadoc",
+				"script/puma/dom/pumadocument.js"
+			],
+			[
+				"pumaei",
+				"script/puma/pumaeditor.js"
+			],
+			[
+				"debu",
+				"script/debug/selectionview.js"
+			],
+			[
+				"debug",
+				"script/debug/debugtemplate.js"
+			],
+			[
+				"magicli",
+				"script/puma/magicline.template.htm"
+			],
+			[
+				"magi",
+				"style/content/magicline.less"
+			],
+			[
+				"magicl",
+				"script/puma/magicline.js"
+			],
+			[
+				"noot",
+				"script/puma/templates/noot.js"
+			],
+			[
+				"pumaedi",
+				"script/puma/pumaeditor.js"
+			],
+			[
+				"pumabase",
+				"script/puma/pumabaseflow.js"
+			],
+			[
+				"magiclin",
+				"script/puma/magicline.js"
+			],
+			[
+				"pumacon",
+				"script/puma/pumacontenttemplate.js"
+			],
+			[
+				"cals",
+				"script/puma/utils/calstablehelper.js"
+			],
+			[
+				"pumates",
+				"script/test/spec/puma/pumatestutils.js"
+			],
+			[
+				"calstab",
+				"script/puma/utils/calstablehelper.js"
+			],
+			[
+				"viewdo",
+				"script/test/spec/puma/templates/viewdocument.tests.js"
+			],
+			[
+				"pumatest",
+				"script/test/spec/puma/pumatestutils.js"
+			],
+			[
+				"testu",
+				"script/test/testutils.js"
+			],
+			[
+				"commandte",
+				"script/test/spec/puma/commands/commandtesthelper.js"
+			],
+			[
+				"repro",
+				"script/test/spec/Reproduced_bugs.tests.js"
+			],
+			[
+				"domhelper",
+				"script/editor/util/domhelper.js"
+			],
+			[
+				"domhelp",
+				"script/test/spec/editor/util/domhelper.tests.js"
+			],
+			[
+				"index.bo",
+				"script/test/index.bootstrap.js"
+			],
+			[
+				"comma",
+				"script/test/spec/puma/commands/commandtesthelper.js"
+			],
+			[
+				"testut",
+				"script/test/testutils.js"
+			],
+			[
+				"pumatestut",
+				"script/test/spec/puma/pumatestutils.js"
+			],
+			[
+				"deletecom",
+				"script/editor/flow/commands/deletecommand.js"
+			],
+			[
+				"item.js",
+				"script/puma/dom/item.js"
+			],
+			[
+				"delete",
+				"script/test/spec/puma/commands/delete/deletecommand.lijst.tests.js"
+			],
+			[
+				"reproduc",
+				"script/test/spec/Reproduced_bugs.tests.js"
+			],
+			[
+				"lijstapp",
+				"script/test/spec/puma/commands/lijsten/lijstapplycommand.tests.js"
+			],
+			[
+				"schema",
+				"script/test/data/schema.json"
+			],
+			[
+				"schema.js",
+				"schema.json"
+			],
+			[
+				"pumacom",
+				"script/puma/commands/pumacommand.js"
+			],
+			[
+				"pumaeditor",
+				"script/puma/pumaeditor.js"
+			],
+			[
+				"pumate",
+				"script/puma/pumatemplate.js"
+			],
+			[
+				"pumaview",
+				"script/puma/pumaview.js"
+			],
+			[
+				"pumatemp",
+				"script/puma/pumatemplate.js"
+			],
+			[
+				"convertto",
+				"script/puma/commands/lijsten/converttolijstcommand.js"
+			],
+			[
+				"test",
+				"script/test/testacular.bootstrap.js"
+			],
+			[
+				"command",
+				"script/test/spec/puma/commands/commandtesthelper.js"
+			],
+			[
+				"specrun",
+				"script/test/specrunner.js"
+			],
+			[
+				"comman",
+				"script/test/spec/puma/commands/commandtesthelper.js"
+			],
+			[
+				"testa",
+				"script/test/testacular.conf.js"
+			],
+			[
+				"commandt",
+				"script/test/spec/puma/commands/commandtesthelper.js"
+			],
+			[
+				"commandma",
+				"script/editor/flow/commandmanager.js"
+			],
+			[
+				"item.",
+				"script/puma/dom/item.js"
+			],
+			[
+				"item",
+				"script/test/spec/puma/commands/lijsten/itemindentcommand.tests.js"
+			],
+			[
+				"itemin",
+				"script/puma/commands/lijsten/itemindentcommand.js"
+			],
+			[
+				"lijsten",
+				"script/puma/commands/lijsten.js"
+			],
+			[
+				"domhe",
+				"script/editor/util/domhelper.js"
+			],
+			[
+				"tablecom",
+				"script/puma/commands/tables/tablecommand.js"
+			],
+			[
+				"pumacomm",
+				"script/puma/commands/pumacommand.js"
+			],
+			[
+				"lijst",
+				"script/test/spec/puma/commands/delete/deletecommand.lijst.tests.js"
+			],
+			[
+				"edit",
+				"script/editor/presentation/editableview.js"
+			],
+			[
+				"noot.",
+				"script/puma/templates/noot.js"
+			],
+			[
+				"pumaed",
+				"script/puma/pumaeditor.js"
+			],
+			[
+				"pumatem",
+				"script/puma/pumatemplate.js"
+			],
+			[
+				"tabl",
+				"style/content/table.less"
+			],
+			[
+				"noo",
+				"style/content/noot.less"
+			],
+			[
+				"editb",
+				"script/editor/presentation/editableview.js"
+			],
+			[
+				"newlin",
+				"script/editor/flow/commands/newlinecommand.js"
+			],
+			[
+				"view",
+				"script/test/spec/puma/templates/viewdocument.tests.js"
+			],
+			[
+				"spec",
+				"script/test/specrunner.js"
+			],
+			[
+				"index",
+				"script/test/index.html"
+			],
+			[
+				"newline",
+				"script/test/spec/puma/commands/newlinecommand.tests.js"
+			],
+			[
+				"baseflo",
+				"script/editor/flow/baseflow.js"
+			],
+			[
+				"",
+				"script/test/spec/puma/commands/newlinecommand.tests.js"
+			],
+			[
+				"lijstin",
+				"script/puma/commands/lijsten/lijstinsertcommand.js"
+			],
+			[
+				"table.l",
+				"style/content/table.less"
+			],
+			[
+				"index.ht",
+				"index.html"
+			],
+			[
+				"commandtes",
+				"script/test/spec/puma/commands/commandtesthelper.js"
+			],
+			[
+				"eventem",
+				"script/editor/util/eventemitter.js"
+			],
+			[
+				".boot",
+				"script/test/testacular.bootstrap.js"
+			],
+			[
+				"wrappin",
+				"script/test/spec/puma/commands/wrappingcommand.splittable.collapsed.tests.js"
+			],
+			[
+				"baseflow",
+				"script/editor/flow/baseflow.js"
+			],
+			[
+				"wrapping",
+				"script/puma/commands/wrappingcommand.js"
+			],
+			[
+				"range",
+				"script/editor/document/dom/selection/range.js"
+			],
+			[
+				"wrapin",
+				"script/puma/commands/wrappingcommand.js"
+			],
+			[
+				"wrappingcomm",
+				"script/puma/commands/wrappingcommand.js"
+			],
+			[
+				"node.js",
+				"script/editor/document/dom/node.js"
+			],
+			[
+				"deletecomm",
+				"script/editor/flow/commands/deletecommand.js"
+			],
+			[
+				"citaat",
+				"script/test/spec/puma/commands/citaten/citaatinsertcommand.tests.js"
+			],
+			[
+				"blockinsert",
+				"script/puma/commands/blockinsertcommand.js"
+			],
+			[
+				"inputde",
+				"script/editor/flow/input/dominputdetector.js"
+			],
+			[
+				"section",
+				"style/content/modes/tekst/sectioning.less"
+			],
+			[
+				"tekst.l",
+				"style/content/modes/tekst.less"
+			],
+			[
+				"merge_e",
+				"script/test/spec/puma/dom/table/Merge_entry.tests.js"
+			],
+			[
+				"table.tes",
+				"script/test/spec/puma/dom/table/Table.tests.js"
+			],
+			[
+				"validato",
+				"script/editor/document/validation/validator.js"
+			],
+			[
+				"templa",
+				"script/puma/templates/metadata.template.htm"
+			],
+			[
+				"te",
+				"script/test/testutils.js"
+			],
+			[
+				"pumadocu",
+				"script/puma/dom/pumadocument.js"
+			],
+			[
+				".less",
+				"style/normalize.less"
+			],
+			[
+				"index.",
+				"index.html"
+			],
+			[
+				"pumaco",
+				"script/puma/pumacommands.js"
+			],
+			[
+				"main.",
+				"script/main.js"
+			],
+			[
+				"templ",
+				"script/editor/presentation/template.js"
+			],
+			[
+				"calsta",
+				"script/puma/utils/calstablehelper.js"
+			],
+			[
+				"colspe",
+				"script/puma/dom/colspec.js"
+			],
+			[
+				"tgroup.s",
+				"script/puma/dom/tgroup.js"
+			],
+			[
+				"tgroup.",
+				"script/puma/dom/tgroup.js"
+			],
+			[
+				"calstabl",
+				"script/puma/utils/calstablehelper.js"
+			],
+			[
+				"tgroup",
+				"script/puma/dom/tgroup.js"
+			],
+			[
+				"table.js",
+				"script/puma/dom/table.js"
+			],
+			[
+				"wid",
+				"script/test/spec/puma/dom/table/Column_width.tests.js"
+			],
+			[
+				"table.",
+				"style/content/table.less"
+			],
+			[
+				"align",
+				"script/test/spec/puma/dom/table/Alignment_of_entry.tests.js"
+			],
+			[
+				"bord",
+				"script/test/spec/puma/dom/table/Border_of_entry.tests.js"
+			],
+			[
+				"puma",
+				"script/puma/pumabaseflow.js"
+			],
+			[
+				"schema.json",
+				"schema.json"
+			],
+			[
+				"dele",
+				"script/editor/flow/commands/deletecommand.js"
+			],
+			[
+				"entryal",
+				"script/puma/commands/tables/entryaligncommand.js"
+			],
+			[
+				"marker",
+				"script/puma/commands/markeringen/markeringsetcommand.js"
+			],
+			[
+				"markering",
+				"script/puma/commands/markeringen.js"
+			],
+			[
+				"range.js",
+				"script/editor/document/dom/selection/range.js"
+			],
+			[
+				"wrappingcom",
+				"script/puma/commands/wrappingcommand.js"
+			],
+			[
+				"commant",
+				"script/test/spec/puma/commands/commandtesthelper.js"
+			],
+			[
+				"subins",
+				"script/test/spec/puma/commands/subinsertcommand.tests.js"
+			],
+			[
+				"sub",
+				"script/puma/commands/subinsertcommand.js"
+			],
+			[
+				"subin",
+				"script/test/spec/puma/commands/subinsertcommand.tests.js"
+			],
+			[
+				"validator.js",
+				"script/editor/document/validation/validator.js"
+			],
+			[
+				"entry.js",
+				"script/puma/dom/entry.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 494.0,
+	"status_bar_visible": true
+}
