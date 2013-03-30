@@ -5,7 +5,6 @@ chatApp.controller('ChatController',
 		if (!ChatService.isAuthenticated())
 			$location.path("/login");
 
-		$scope.user = null;
 		$scope.users = [];
 		$scope.chats = {};
 
@@ -17,7 +16,12 @@ chatApp.controller('ChatController',
 			ChatService
 				.getUsers()
 				.success(function(users) {
-					$scope.users = users;
+					// Filter authenticated user
+					$scope.users =
+						_.filter(users, function(user) {
+							// Not me
+							return user.name !== ChatService.user.name;
+						});
 				})
 				.error(function(err) {
 					console.log(err);
@@ -28,7 +32,11 @@ chatApp.controller('ChatController',
 			ChatService
 				.getMessages(chat.user.name)
 				.success(function(messages) {
-					chat.messages = messages;
+					chat.messages =
+						_.filter(messages, function(message) {
+							// Messages sent by me, or chat.user
+							return message.sender === ChatService.user.name || message.sender === chat.user.name;
+						});
 				});
 		};
 
@@ -50,6 +58,19 @@ chatApp.controller('ChatController',
 
 		$scope.closeChat = function(chat) {
 			delete $scope.chats[chat.user.name];
+		};
+
+		$scope.sendMessage = function(chat, text) {
+			ChatService
+				.sendMessage(chat.user, text)
+				.success(function() {
+					$scope.refreshMessages(chat);
+				});
+		};
+
+		$scope.logout = function() {
+			ChatService.logout();
+			$location.path("/login");
 		};
 
 		$scope.connect();

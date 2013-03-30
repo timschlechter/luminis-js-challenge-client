@@ -1,12 +1,20 @@
 <div class="login">
 	<h2>Aanmelden</h2>
 	<input type="text" class="input-block-level" placeholder="Gebruikersnaam" ng-model="username">
-	<input type="text" class="input-block-level" placeholder="Server" ng-model="serviceUrl">
+
+	<div class="btn-group">
+		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			{{serviceUrl|truncate:40}}
+			<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li ng-repeat="service in services" ng-click="selectService(service)" ng-class="{active: service==serviceUrl}">
+				<a>{{service}}</a>
+			</li>
+		</ul>
+	</div>
 	<label class="checkbox">
 	  <input type="checkbox" value="remember-me"> Onthouden
 	</label>
 	<button class="btn btn-large btn-primary" ng-click="login(username)">OK</button>
-</div>
-<div class="alert alert-error">
-  {{error}}
 </div>

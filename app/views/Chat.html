@@ -1,42 +1,77 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
-<div class="navbar-inner">
-  <div class="navbar-form pull-left">
-    <input type="text" class="span6" ng-model="serviceUrl" />
-    <button type="submit" class="btn" ng-click="connect()">Connect</button>
-  </div>
-</div>
-</div>
-<div class="container-fluid">
+
+<div class="container-fluid chat">
 	<div class="row-fluid">
-		<div class="span3">
-			<div class="well sidebar-nav">
-				<!-- User List -->
-				 <ul class="nav nav-list">
-					<li ng-class="{active:user.selected}" ng-repeat="user in users" ng-click="selectUser(user)">
-						<a>{{user.name}}</a>
-					</li>
+
+		<!-- Content -->
+		<div class="span9">
+			
+			<!-- Tabs: only visible when > 768px -->
+			<div class="tabs span8" data-spy="affix-top" data-offset-top="50">
+				<ul class="nav nav-tabs">
+					<li ng-class="{active:chat.user.selected}" ng-repeat="chat in chats" ng-click="selectUser(chat.user)">
+				 		<a href="#{{chat.user.name}}" data-toggle="tab">
+				 			{{chat.user.name|truncate:16}}&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
+				 		</a>
+				 	</li>
 				</ul>
 			</div>
-		</div>
-		<div class="span9">
-			<ul class="nav nav-tabs">
-				<li ng-class="{active:chat.user.selected}" ng-repeat="chat in chats" ng-click="selectUser(chat.user)">
-			 		<a href="#{{chat.user.name}}" data-toggle="tab">
-			 			{{chat.user.name}}&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
-			 		</a>
-			 	</li>
-			</ul>
+
+			<!-- Tab contents -->
 			<div class="tab-content">
 				<div ng-class="{active:chat.user.selected}" class="tab-pane" id="{{chat.user.name}}" ng-repeat="chat in chats">
-					<div class="message popover right" ng-repeat="message in chat.messages">
-						<div class="arrow"></div>
-						<h3 class="popover-title">{{message.timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}</h3>
-						<div class="popover-content">
-							<p>{{message.content}}</p>
+					
+					<!-- Messages -->
+					<div class="messages">
+						<div class="popover" ng-class="{right: message.sender==chat.user.name, left: message.sender!=chat.user.name}" ng-repeat="message in chat.messages">
+							<div class="arrow"></div>
+							<div class="popover-content">
+								<p>{{message.content}}</p>
+								<i>{{message.timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}</i>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+
+
+		<!-- Sidebar: only visible when > 768px -->
+		<div class="span3 sidebar">
+			<div class="well sidebar-nav onlybigscreen">
+				 <ul class="nav nav-list">
+				 	<li class="nav-header">Gebruikers</li>
+					<li ng-class="{active:user.selected}" ng-repeat="user in users" ng-click="selectUser(user)">
+						<a>{{user.name|truncate:16}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Bottom toolbar -->
+	<div class="row-fluid">
+		<div class="navbar-form pull-left toolbar">
+
+			<div class="navbar-inner">
+				<input type="text" ng-model="text" class="pull-left span12">
+				<button class="btn btn-primary  pull-right"  ng-click="sendMessage(chat, text)">Verstuur</button>
+
+				<div class="btn-group dropup pull-left">
+					<a class="btn dropdown-toggle" data-toggle="dropdown">
+						Menu
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li ng-repeat="user in users" ng-click="selectUser(user)">
+							<a>{{user.name|truncate:16}}</a>
+						</li>
+
+						<li class="divider"></li>
+						<li ng-click="logout()"><a>Afmelden</a></li>
+					</ul>
+				</div>
+
 		</div>
 	</div>
 </div>
