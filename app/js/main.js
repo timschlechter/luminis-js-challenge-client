@@ -7,10 +7,14 @@ chatApp.config(function($routeProvider) {
       when('/', {
         controller: 'ChatController',
         templateUrl: 'views/Chat.html'
+      }).
+      when('/login', {
+        controller: 'LoginController',
+        templateUrl: 'views/Login.html'
       });
 });
 
-// Workaround to allow Cross Domain Request
+// Workaround to allow Cross Domain Request from localhost
 chatApp.config(['$httpProvider', function($httpProvider) {
 	delete $httpProvider.defaults.headers.common["X-Requested-With"];
 }]);

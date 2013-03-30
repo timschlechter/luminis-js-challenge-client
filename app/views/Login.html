@@ -1,0 +1,12 @@
+<div class="login">
+	<h2>Aanmelden</h2>
+	<input type="text" class="input-block-level" placeholder="Gebruikersnaam" ng-model="username">
+	<input type="text" class="input-block-level" placeholder="Server" ng-model="serviceUrl">
+	<label class="checkbox">
+	  <input type="checkbox" value="remember-me"> Onthouden
+	</label>
+	<button class="btn btn-large btn-primary" ng-click="login(username)">OK</button>
+</div>
+<div class="alert alert-error">
+  {{error}}
+</div>
