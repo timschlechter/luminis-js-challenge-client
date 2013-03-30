@@ -10,16 +10,7 @@
   <link rel="stylesheet" type="text/css" href="css/styles.min.css" />
 </head>
 
-<body ng-controller="AppController">
-
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="navbar-form pull-left">
-        <input type="text" class="span6" value="{{chatServiceUrl}}" />
-        <button type="submit" class="btn">Connect</button>
-      </div>
-    </div>
-  </div>
+<body>
 
   <div ng-view />
 
@@ -30,7 +21,6 @@
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 
   <script src="js/main.js"></script>
-  <script src="js/controllers/AppController.js"></script>
   <script src="js/controllers/ChatController.js"></script>
   <script src="js/services/ChatService.js"></script>
   
