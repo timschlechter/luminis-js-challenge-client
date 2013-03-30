@@ -2,6 +2,18 @@
 <div class="container-fluid chat">
 	<div class="row-fluid">
 
+		<!-- Sidebar: only visible when > 768px -->
+		<div class="span3 sidebar">
+			<div class="well sidebar-nav onlybigscreen">
+				 <ul class="nav nav-list">
+				 	<li class="nav-header">Gebruikers</li>
+					<li ng-class="{active:user.selected}" ng-repeat="user in users" ng-click="selectUser(user)">
+						<a>{{user.name|truncate:16}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
 		<!-- Content -->
 		<div class="span9">
 			
@@ -31,19 +43,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-
-
-		<!-- Sidebar: only visible when > 768px -->
-		<div class="span3 sidebar">
-			<div class="well sidebar-nav onlybigscreen">
-				 <ul class="nav nav-list">
-				 	<li class="nav-header">Gebruikers</li>
-					<li ng-class="{active:user.selected}" ng-repeat="user in users" ng-click="selectUser(user)">
-						<a>{{user.name|truncate:16}}</a>
-					</li>
-				</ul>
 			</div>
 		</div>
 	</div>
