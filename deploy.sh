@@ -92,6 +92,8 @@ selectNodeVersion () {
 
 echo Handling node.js deployment.
 
+npm install 
+
 cd scripts
 ./build.sh
 cd ..
