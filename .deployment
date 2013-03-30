@@ -1,2 +1,3 @@
 [config]
 project = app
+command = scripts/build.sh
