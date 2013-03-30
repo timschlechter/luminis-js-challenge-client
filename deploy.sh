@@ -110,9 +110,6 @@ cd ..
 $KUDU_SYNC_CMD -v 50 -f "$DEPLOYMENT_SOURCE/app" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh" 2> /dev/null
 exitWithMessageOnError "Kudu Sync failed"
 
-rm $DEPLOYMENT_TARGET/index.html
-mv $DEPLOYMENT_TARGET/production.html $DEPLOYMENT_TARGET/index.html
-
 ##################################################################################################################################
 
 echo "Finished successfully."
