@@ -1,7 +1,5 @@
 var chatApp = angular.module('chatApp', ['ngResource']);
 
-chatApp.chatServiceUrl = 'http://luminisjschallenge.herokuapp.com/';
-
 // Routes
 chatApp.config(function($routeProvider) {
 

@@ -1,8 +1,12 @@
 chatApp.factory('ChatService', function($http) {
 
-	var rootUrl = chatApp.chatServiceUrl;
+	var rootUrl = '';
 
 	return {
+		setRootUrl : function(url) {
+			rootUrl = url;
+		},
+
 		getUsers : function() {
 			return $http.get(rootUrl);
 		},

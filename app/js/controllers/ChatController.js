@@ -1,8 +1,14 @@
 chatApp.controller('ChatController',
     function ChatController($scope, $routeParams, ChatService) {
 
+		$scope.chatServiceUrl = 'http://luminisjschallenge.herokuapp.com/';
 		$scope.users = [];
 		$scope.chats = {};
+
+		$scope.connect = function() {
+			ChatService.setRootUrl($scope.chatServiceUrl);
+			$scope.refreshUsers();
+		};
 
 		$scope.refreshUsers = function() {
 			ChatService
@@ -40,6 +46,6 @@ chatApp.controller('ChatController',
 			delete $scope.chats[chat.user.name];
 		};
 
-		$scope.refreshUsers();
+		$scope.connect();
     }
 );

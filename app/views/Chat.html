@@ -1,3 +1,11 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar-inner">
+  <div class="navbar-form pull-left">
+    <input type="text" class="span6" value="{{chatServiceUrl}}" />
+    <button type="submit" class="btn" ng-click="connect()">Connect</button>
+  </div>
+</div>
+</div>
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span3">
@@ -20,11 +28,13 @@
 			</ul>
 			<div class="tab-content">
 				<div ng-class="{active:chat.user.selected}" class="tab-pane" id="{{chat.user.name}}" ng-repeat="chat in chats">
-					<ul>
-						<li ng-repeat="message in chat.messages">
-					 		{{message.content}}
-					 	</li>
-					</ul>
+					<div class="message popover right" ng-repeat="message in chat.messages">
+						<div class="arrow"></div>
+						<h3 class="popover-title">{{message.timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}</h3>
+						<div class="popover-content">
+							<p>{{message.content}}</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
