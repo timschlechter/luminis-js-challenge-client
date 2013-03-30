@@ -1,16 +1,32 @@
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span3">
-			<div class="well sidebar-nav" ng-controller="UserListController">
-				 <div ng-include src="'views/UserList.html'"></div>
+			<div class="well sidebar-nav">
+				<!-- User List -->
+				 <ul class="nav nav-list">
+					<li ng-class="{active:user.selected}" ng-repeat="user in users" ng-click="selectUser(user)">
+						<a>{{user.name}}</a>
+					</li>
+				</ul>
 			</div>
 		</div>
-		<div class="span12">
-			<ul>
-				<li ng-repeat="message in messages">
-					<a href="#">{{message.text}}</a>
-				</li>
+		<div class="span9">
+			<ul class="nav nav-tabs">
+				<li ng-class="{active:chat.user.selected}" ng-repeat="chat in chats" ng-click="selectUser(chat.user)">
+			 		<a href="#{{chat.user.name}}" data-toggle="tab">
+			 			{{chat.user.name}}&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
+			 		</a>
+			 	</li>
 			</ul>
+			<div class="tab-content">
+				<div ng-class="{active:chat.user.selected}" class="tab-pane" id="{{chat.user.name}}" ng-repeat="chat in chats">
+					<ul>
+						<li ng-repeat="message in chat.messages">
+					 		{{message.content}}
+					 	</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
