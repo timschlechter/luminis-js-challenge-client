@@ -1,71 +1,97 @@
-chatApp.controller('ChatController',
-	function ChatController($scope, $location, $routeParams, ChatService) {
+chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService',
+	function ($scope, $location, ChatService) {
 
 		// Authenticated?
 		if (!ChatService.isAuthenticated())
 			$location.path("/login");
 
 		$scope.users = [];
-		$scope.chats = {};
-
-		$scope.connect = function() {
-			$scope.refreshUsers();
-		};
-
-		$scope.refreshUsers = function() {
-			ChatService
-				.getUsers()
-				.success(function(users) {
-					// Filter authenticated user
-					$scope.users =
-						_.filter(users, function(user) {
-							// Not me
-							return user.name !== ChatService.user.name;
-						});
-				})
-				.error(function(err) {
-					console.log(err);
-				});
-		};
-
-		$scope.refreshMessages = function(chat) {
-			ChatService
-				.getMessages(chat.user.name)
-				.success(function(messages) {
-					chat.messages =
-						_.filter(messages, function(message) {
-							// Messages sent by me, or chat.user
-							return message.sender === ChatService.user.name || message.sender === chat.user.name;
-						});
-				});
-		};
+		$scope.chats = [];
+		$scope.selectedChat = null;
+		$scope.selectedUser = null;
 
 		$scope.selectUser = function(user) {
-			_.each($scope.users, function(user) { user.selected = false; });
-			user.selected = true;
+			$scope.selectedUser = user;
 
-			$scope.openChat(user);
+			if (user && !user.muted)
+				$scope.openChat(user);
+
+			$scope.selectedChat = $scope.findChat(user);
 		};
 
 		$scope.openChat = function(user) {
-			if (!$scope.chats[user.name])
-				$scope.chats[user.name] = { user : user };
 
-			var chat = $scope.chats[user.name];
+			var chat = $scope.findChat(user);
 
-			$scope.refreshMessages(chat);
+			// Create a new chat if it doesn't exist
+			if (!chat) {
+				chat = {
+					user : user,
+
+					// Refreshes the messages in this chat
+					refreshMessages : function() {
+						chat.messages = [];
+
+						// Retrieve all message sent to chat.user
+						ChatService.getMessages(chat.user.name)
+							.success(function(messages) {
+								// Add messages sent by me
+								_.each(messages, function(message) {
+									if (message.sender === ChatService.user.name)
+										chat.messages.push(message);
+								});
+							});
+
+						// Retrieve all message sent to me
+						ChatService.getMessages(ChatService.user.name)
+							.success(function(messages) {
+								// Add messages sent by chat.user
+								_.each(messages, function(message) {
+									if (message.sender === chat.user.name)
+										chat.messages.push(message);
+								});
+							});
+					}
+				};
+
+				$scope.chats.push(chat);
+
+				// Refresh messages
+				chat.refreshMessages();
+			}
+
+			$scope.selectedChat = chat;
 		};
 
 		$scope.closeChat = function(chat) {
-			delete $scope.chats[chat.user.name];
+			$scope.chats = _.without($scope.chats, chat);
+
+			if ($scope.selectedChat === chat) {
+				// Set selection to first chat's user
+				var firstChat = $scope.chats[0],
+					user = firstChat ? firstChat.user : null;
+
+				$scope.selectUser(user);
+			}
 		};
 
 		$scope.sendMessage = function(chat, text) {
-			ChatService
-				.sendMessage(chat.user, text)
+			if (!chat)
+				return;
+
+			ChatService.sendMessage(chat.user, text)
 				.success(function() {
-					$scope.refreshMessages(chat);
+					chat.refreshMessages();
 				});
+		};
+
+		$scope.toggleMute = function(user) {
+			user.muted = !user.muted;
+
+			// if user gets muted, close its chat
+			if (user.muted) {
+				$scope.closeChat($scope.findChat(user));
+			}
 		};
 
 		$scope.logout = function() {
@@ -73,6 +99,17 @@ chatApp.controller('ChatController',
 			$location.path("/login");
 		};
 
-		$scope.connect();
+		$scope.findChat = function(user) {
+			return _.find($scope.chats, function(chat) { return chat.user === user; });
+		};
+
+		function refreshUsers() {
+			ChatService.getUsers()
+				.success(function(users) {
+					$scope.users = _.filter(users, function(user) { return user.name !== ChatService.user.name; });
+				});
+		}
+
+		refreshUsers();
     }
-);
+]);

@@ -6,6 +6,29 @@
 		position:relative;
 		margin-top:-50px;
 	}
+
+	.userlist {
+		.user {
+			&:hover {
+				.invisible {
+					visibility: visible;
+				}
+
+				.icon-eye-open {
+					&:hover {
+						background-position: -360px -24px;
+					}
+				}
+
+				.icon-volume-off {
+					&:hover {
+						background-position: -96px -120px;
+					}
+				}
+			}
+		}
+	}
+
 	.tabs {
 		position:fixed;
 		top:0px;

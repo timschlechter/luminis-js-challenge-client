@@ -5,10 +5,14 @@
 		<!-- Sidebar: only visible when > 768px -->
 		<div class="span3 sidebar">
 			<div class="well sidebar-nav onlybigscreen">
-				 <ul class="nav nav-list">
+				 <ul class="nav nav-list userlist">
 				 	<li class="nav-header">Gebruikers</li>
-					<li ng-class="{active:user.selected}" ng-repeat="user in users" ng-click="selectUser(user)">
-						<a>{{user.name|truncate:16}}</a>
+					<li ng-repeat="user in users" ng-click="selectUser(user)" ng-class="{active:!user.muted && selectedUser==user}" class="user">
+						<a>
+							<i class="" ng-class="{invisible:!(user.muted || findChat(user)), 'icon-eye-open':!user.muted, 'icon-volume-off':user.muted}" ng-click="toggleMute(user)"></i>
+							{{user.name|truncate:16}}
+						</a>
+
 					</li>
 				</ul>
 			</div>
@@ -18,9 +22,9 @@
 		<div class="span9">
 			
 			<!-- Tabs: only visible when > 768px -->
-			<div class="tabs span8" data-spy="affix-top" data-offset-top="50">
+			<div class="tabs span8">
 				<ul class="nav nav-tabs">
-					<li ng-class="{active:chat.user.selected}" ng-repeat="chat in chats" ng-click="selectUser(chat.user)">
+					<li ng-repeat="chat in chats" ng-class="{active:chat==selectedChat}" ng-click="selectUser(chat.user)">
 				 		<a href="#{{chat.user.name}}" data-toggle="tab">
 				 			{{chat.user.name|truncate:16}}&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
 				 		</a>
@@ -30,11 +34,10 @@
 
 			<!-- Tab contents -->
 			<div class="tab-content">
-				<div ng-class="{active:chat.user.selected}" class="tab-pane" id="{{chat.user.name}}" ng-repeat="chat in chats">
-					
+				<div ng-repeat="chat in chats" id="{{chat.user.name}}" class="tab-pane" ng-class="{active:chat==selectedChat}">
 					<!-- Messages -->
 					<div class="messages">
-						<div class="popover" ng-class="{right: message.sender==chat.user.name, left: message.sender!=chat.user.name}" ng-repeat="message in chat.messages">
+						<div ng-repeat="message in chat.messages" class="popover" ng-class="{right:message.sender==chat.user.name, left:message.sender!=chat.user.name}">
 							<div class="arrow"></div>
 							<div class="popover-content">
 								<p>{{message.content}}</p>
@@ -54,7 +57,7 @@
 
 			<div class="navbar-inner">
 				<input type="text" ng-model="text" class="pull-left span12">
-				<button class="btn btn-primary  pull-right"  ng-click="sendMessage(chat, text)">Verstuur</button>
+				<button class="btn btn-primary pull-right" ng-class="{disabled:!selectedChat}" ng-click="sendMessage(selectedChat, text)">Verstuur</button>
 
 				<div class="btn-group dropup pull-left">
 					<a class="btn dropdown-toggle" data-toggle="dropdown">
