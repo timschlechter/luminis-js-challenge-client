@@ -8,7 +8,7 @@ chatApp.controller('LoginController',
 				'http://planetmarrs.xs4all.nl:8787/server/'
 			];
 
-		$scope.username = ''; // TODO: retrieve from local storage?
+		$scope.username = 'Tim'; // TODO: retrieve from local storage?
 
 
 		$scope.selectService = function(service) {
@@ -30,5 +30,7 @@ chatApp.controller('LoginController',
 						$scope.error = err;
 					});
 		};
+
+		$scope.login();
 	}
 );
