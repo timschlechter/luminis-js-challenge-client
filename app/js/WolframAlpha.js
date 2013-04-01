@@ -20,7 +20,7 @@ chatApp.factory('WolframAlpha', ['ChatService', 'MessagesObserver', '$http',
 				// Subscribe to auto respond
 				MessagesObserver.subscribe(this, undefined, this.name, function(message) {
 
-					$http.get(ChatService.rootUrl + 'api/wolframalpha/***/' + message.content)
+					$http.get(ChatService.rootUrl + 'api/wolframalpha/6PXV9H-LE2LUEW989/' + message.content)
 						.success(function(data) {
 
 							// Only responsd when message created after starting
