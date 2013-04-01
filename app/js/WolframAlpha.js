@@ -5,7 +5,7 @@ chatApp.factory('WolframAlpha', ['ChatService', 'MessagesObserver', '$http',
 			if (!(data && data[1] && data[1][5] && data[1][5][1]))
 				return '?';
 
-			return data[1][5][1].title === 'Response' ? data[1][5][3][3][1] : '?';
+			return data[1][5][3][3][1];// : '?';
 		}
 
 		return {

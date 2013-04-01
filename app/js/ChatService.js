@@ -16,12 +16,12 @@ chatApp.factory('ChatService', ['$http', '$q',
 
 						// existing found, resolve promise
 						if (user) {
-							defer.resolve();
+							defer.resolve(user);
 						} else {
 							chatService.createUser(username)
-								.success(function () {
+								.success(function (user) {
 									// new user created, resolve promise
-									defer.resolve();
+									defer.resolve(user);
 								});
 						}
 					});
@@ -33,12 +33,8 @@ chatApp.factory('ChatService', ['$http', '$q',
 				var chatService = this;
 
 				return this.ensureUserExists(username)
-							.then(function() {
-								chatService.getUsers()
-									.success(function (users) {
-										// try find existing user
-										chatService.authenticatedUser = _.filter(users, function (user) { return user.name === username; })[0] || null;
-									});
+							.then(function(user) {
+								chatService.authenticatedUser = user;
 							});
 			},
 
