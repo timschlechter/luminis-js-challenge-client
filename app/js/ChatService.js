@@ -1,20 +1,21 @@
 chatApp.factory('ChatService', ['$http', '$q',
 	function ($http, $q) {
-		return {
+
+		var chatService = {
 			rootUrl : '',
 			authenticatedUser : null,
 
-			login : function (username) {
+			ensureUserExists : function (username) {
 				var chatService = this,
 					defer = $q.defer();
 
 				this.getUsers()
 					.success(function (users) {
 						// try find existing user
-						chatService.authenticatedUser = _.filter(users, function (user) { return user.name === username; })[0] || null;
+						var user = _.filter(users, function (user) { return user.name === username; })[0] || null;
 
 						// existing found, resolve promise
-						if (chatService.authenticatedUser) {
+						if (user) {
 							defer.resolve();
 						} else {
 							chatService.createUser(username)
@@ -26,6 +27,19 @@ chatApp.factory('ChatService', ['$http', '$q',
 					});
 
 				return defer.promise;
+			},
+
+			login : function (username) {
+				var chatService = this;
+
+				return this.ensureUserExists(username)
+							.then(function() {
+								chatService.getUsers()
+									.success(function (users) {
+										// try find existing user
+										chatService.authenticatedUser = _.filter(users, function (user) { return user.name === username; })[0] || null;
+									});
+							});
 			},
 
 			logout : function () {
@@ -57,14 +71,13 @@ chatApp.factory('ChatService', ['$http', '$q',
 							})
 							.error(this.handleHttpError);
 			},
-
-			sendMessage : function (user, text) {
+			sendMessage : function (sender, recipient, text) {
 				var data = {
-					"sender": this.authenticatedUser.name,
+					"sender": sender,
 					"content": text
 				};
 
-				return $http.post(this.rootUrl + user.name,  angular.toJson(data))
+				return $http.post(this.rootUrl + recipient, angular.toJson(data))
 							.error(this.handleHttpError);
 			},
 
@@ -72,5 +85,7 @@ chatApp.factory('ChatService', ['$http', '$q',
 				console.log(config);
 			}
 		};
+
+		return chatService;
 	}
 ]);

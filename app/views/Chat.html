@@ -8,9 +8,9 @@
 				 	<li class="nav-header">Gebruikers</li>
 					<li ng-repeat="user in users" ng-click="selectUser(user)" ng-class="{active:!user.muted && selectedUser==user}" class="user">
 						<a>
-							<i class="" ng-class="{invisible:!(user.muted || findChat(currentUser, user)), 'icon-eye-open':!user.muted, 'icon-volume-off':user.muted}" ng-click="toggleMute(user)"></i>
+							<i class="" ng-class="{invisible:!(user.muted), 'icon-volume-up':!user.muted, 'icon-volume-off':user.muted}" ng-click="toggleMute(user)"></i>
 							{{user.name|truncate:16}}
-							<i class="icon-inbox pull-right" ng-hide="!user.newMessages"></i>
+							<i class="icon-comment pull-right" ng-hide="!user.newMessages"></i>
 						</a>
 
 					</li>
@@ -26,7 +26,7 @@
 				<ul class="nav nav-tabs">
 					<li ng-repeat="chat in chats" ng-class="{active:chat==selectedChat}" ng-click="selectUser(chat.recipient)">
 				 		<a href="#{{chat.recipient.name}}" data-toggle="tab">
-							<i class="icon-inbox" ng-hide="!chat.recipient.newMessages"></i>
+							<i class="icon-comment" ng-hide="!chat.recipient.newMessages"></i>
 				 			{{chat.recipient.name|truncate:16}}&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
 				 		</a>
 				 	</li>

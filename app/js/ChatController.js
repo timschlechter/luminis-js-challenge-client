@@ -1,5 +1,5 @@
-chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'MessagesObserver',
-	function ($scope, $location, ChatService, MessagesObserver) {
+chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'MessagesObserver', 'WolframAlpha',
+	function ChatController($scope, $location, ChatService, MessagesObserver, WolframAlpha) {
 
 		// Authenticated?
 		if (!ChatService.authenticatedUser)
@@ -93,7 +93,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 			if (!chat)
 				return;
 
-			ChatService.sendMessage(chat.recipient, text);
+			ChatService.sendMessage(chat.sender.name, chat.recipient.name, text);
 		};
 
 		$scope.toggleMute = function (user) {
@@ -123,10 +123,6 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 		};
 
 		function addUser(user) {
-			// Don't add me
-			if (user.name === $scope.currentUser.name)
-				return;
-
 			$scope.users.push(user);
 		}
 
@@ -152,6 +148,9 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 		}
 
 		function init() {
+
+			// WolframAlpha.start();
+
 			ChatService.getUsers()
 				.success(function (users) {
 					_.each(users, addUser);
@@ -162,6 +161,9 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 		}
 
 		function destroy() {
+
+			// WolframAlpha.stop();
+
 			// Close all chats
 			_.each($scope.chats, function (chat) { $scope.closeChat(chat); });
 

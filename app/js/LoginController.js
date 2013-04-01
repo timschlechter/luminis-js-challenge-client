@@ -1,8 +1,9 @@
 chatApp.controller('LoginController',
 	function LoginController($scope, $location, $routeParams, ChatService) {
 
-		$scope.serviceUrl = 'http://luminisjschallenge-server.azurewebsites.net/';
+		$scope.serviceUrl = 'http://localhost:8080/';
 		$scope.services = [
+				'http://localhost:8080/',
 				'http://luminisjschallenge-server.azurewebsites.net/',
 				'http://luminisjschallenge.herokuapp.com/',
 				'http://planetmarrs.xs4all.nl:8787/server/'
@@ -30,6 +31,6 @@ chatApp.controller('LoginController',
 					});
 		};
 
-		//$scope.login('Tim');
+		$scope.login('Tim');
 	}
 );
