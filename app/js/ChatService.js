@@ -2,11 +2,7 @@ chatApp.factory('ChatService', ['$http', '$q',
 	function ($http, $q) {
 		return {
 			rootUrl : '',
-			user : {},
-
-			isAuthenticated : function() {
-				return !!this.user.name;
-			},
+			authenticatedUser : null,
 
 			login : function(username) {
 				var chatService = this,
@@ -15,10 +11,10 @@ chatApp.factory('ChatService', ['$http', '$q',
 				this.getUsers()
 					.success(function(users) {
 						// try find existing user
-						chatService.user = _.filter(users, function(user) { return user.name === username; })[0] || {};
+						chatService.authenticatedUser = _.filter(users, function(user) { return user.name === username; })[0] || null;
 
 						// existing found, resolve promise
-						if (chatService.isAuthenticated()) {
+						if (chatService.authenticatedUser) {
 							defer.resolve();
 						} else {
 							chatService.createUser(username)
@@ -33,7 +29,7 @@ chatApp.factory('ChatService', ['$http', '$q',
 			},
 
 			logout : function() {
-				this.user = {};
+				this.authenticatedUser = null;
 			},
 
 			createUser : function(username) {
@@ -41,7 +37,7 @@ chatApp.factory('ChatService', ['$http', '$q',
 
 				return $http.post(this.rootUrl,  angular.toJson(data))
 							.success(function() {
-								this.user = { name : username };
+								this.authenticatedUser = { name : username };
 							})
 							.error(this.handleHttpError);
 			},
@@ -64,7 +60,7 @@ chatApp.factory('ChatService', ['$http', '$q',
 
 			sendMessage : function(user, text) {
 				var data = {
-					"sender": this.user.name,
+					"sender": this.authenticatedUser.name,
 					"content": text
 				};
 

@@ -2,10 +2,10 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 	function ($scope, $location, ChatService, MessagesObserver) {
 
 		// Authenticated?
-		if (!ChatService.isAuthenticated())
-			$location.path("/login");
+		if (!ChatService.authenticatedUser)
+			return $location.path("/login");
 
-		$scope.currentUser = ChatService.user;
+		$scope.currentUser = ChatService.authenticatedUser;
 		$scope.users = [];
 		$scope.chats = [];
 		$scope.selectedChat = null;
