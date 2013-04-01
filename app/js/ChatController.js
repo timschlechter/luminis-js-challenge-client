@@ -128,7 +128,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 			$scope.users.push(user);
 		}
 
-		function receiveMessage(message) {
+		function recieveMessage(message) {
 			var sender = $scope.findUser(message.sender),
 				selectedUser = $scope.selectedUser;
 
@@ -155,7 +155,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 					_.each(users, addUser);
 
 					// Subscribe to messages observer
-					MessagesObserver.subscribe(this, undefined, $scope.currentUser.name, receiveMessage);
+					MessagesObserver.subscribe(this, undefined, $scope.currentUser.name, recieveMessage);
 				});
 		}
 

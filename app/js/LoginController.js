@@ -10,25 +10,26 @@ chatApp.controller('LoginController',
 
 		$scope.username = ''; // TODO: retrieve from local storage?
 
-
-		$scope.selectService = function(service) {
+		$scope.selectService = function (service) {
 			$scope.serviceUrl = service;
 		};
 
-		$scope.login = function() {
+		$scope.login = function (username) {
 			ChatService.rootUrl = $scope.serviceUrl;
 
 			ChatService
-				.login($scope.username)
+				.login(username || $scope.username)
 				.then(
 					// success
-					function() {
+					function () {
 						$location.path("/");
 					},
 					// error
-					function(err) {
+					function (err) {
 						$scope.error = err;
 					});
 		};
+
+		//$scope.login('Tim');
 	}
 );

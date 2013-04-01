@@ -19,10 +19,10 @@
 		</div>
 
 		<!-- Content -->
-		<div class="span9">
+		<div class="span9 pull-right">
 			
 			<!-- Tabs: only visible when > 768px -->
-			<div class="tabs span8">
+			<div class="tabs span9">
 				<ul class="nav nav-tabs">
 					<li ng-repeat="chat in chats" ng-class="{active:chat==selectedChat}" ng-click="selectUser(chat.recipient)">
 				 		<a href="#{{chat.recipient.name}}" data-toggle="tab">
