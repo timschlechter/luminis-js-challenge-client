@@ -1,4 +1,4 @@
-<div class="container-fluid chat" ng-class="{invisible:!currentUser}">
+<div class="container-fluid chat" ng-class="{invisible:!sender}">
 	<div class="row-fluid">
 
 		<!-- Sidebar: only visible when > 768px -->
@@ -8,7 +8,7 @@
 				 	<li class="nav-header">Gebruikers</li>
 					<li ng-repeat="user in users" ng-click="selectUser(user)" ng-class="{active:!user.muted && selectedUser==user}" class="user">
 						<a>
-							<i class="" ng-class="{invisible:!(user.muted || findChat(currentUser, user)), 'icon-eye-open':!user.muted, 'icon-volume-off':user.muted}" ng-click="toggleMute(user)"></i>
+							<i class="" ng-class="{invisible:!(user.muted || findChat(sender, user)), 'icon-eye-open':!user.muted, 'icon-volume-off':user.muted}" ng-click="toggleMute(user)"></i>
 							{{user.name|truncate:16}}
 							<i class="icon-inbox pull-right" ng-hide="!user.newMessages"></i>
 						</a>
