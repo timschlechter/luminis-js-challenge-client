@@ -102,7 +102,7 @@ if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
 fi
 
 # 3. Run custom build script
-cd scripts
+cd build
 ./build.sh
 cd ..
 

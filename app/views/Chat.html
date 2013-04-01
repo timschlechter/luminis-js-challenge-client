@@ -36,7 +36,7 @@
 			<div class="tab-content">
 				<div ng-repeat="chat in chats" id="{{chat.recipient.name}}" class="tab-pane" ng-class="{active:chat==selectedChat}">
 					<!-- Messages -->
-					<div class="messages">
+					<div class="messages media ">
 						<div ng-repeat="message in chat.messages" class="popover" ng-class="{right:message.sender==chat.recipient.name, left:message.sender!=chat.recipient.name}">
 							<div class="arrow"></div>
 							<div class="popover-content">
