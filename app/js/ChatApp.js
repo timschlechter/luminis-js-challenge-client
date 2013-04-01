@@ -5,7 +5,7 @@ var chatApp =
 
 // Routes
 chatApp.config(
-	function($routeProvider) {
+	function ($routeProvider) {
 		$routeProvider.
 			when('/', {
 				controller: 'ChatController',
@@ -20,7 +20,7 @@ chatApp.config(
 );
 
 // Workaround to allow Cross Domain Request from localhost
-chatApp.config(['$httpProvider', function($httpProvider) {
+chatApp.config(['$httpProvider', function ($httpProvider) {
 	delete $httpProvider.defaults.headers.common["X-Requested-With"];
 }]);
 
