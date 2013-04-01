@@ -5,7 +5,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 		if (!ChatService.authenticatedUser)
 			return $location.path("/login");
 
-		$scope.sender = ChatService.authenticatedUser;
+		$scope.currentUser = ChatService.authenticatedUser;
 		$scope.users = [];
 		$scope.chats = [];
 		$scope.selectedChat = null;
@@ -13,7 +13,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 
 		$scope.selectUser = function (user) {
 			$scope.selectedUser = user;
-			$scope.selectedChat = $scope.openChat($scope.sender, user);
+			$scope.selectedChat = $scope.openChat($scope.currentUser, user);
 		};
 
 		$scope.openChat = function (sender, recipient) {
@@ -77,8 +77,8 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 			$scope.chats = _.without($scope.chats, chat);
 
 			// Unsubscribe from messages observer
-			MessagesObserver.unsubscribe(chat, chat.recipient.name, $scope.sender.name);
-			MessagesObserver.unsubscribe(chat, $scope.sender.name, chat.recipient.name);
+			MessagesObserver.unsubscribe(chat, chat.recipient.name, $scope.currentUser.name);
+			MessagesObserver.unsubscribe(chat, $scope.currentUser.name, chat.recipient.name);
 
 			if ($scope.selectedChat === chat) {
 				// Set selection to first chat's user
@@ -97,7 +97,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 		};
 
 		$scope.toggleMute = function (user) {
-			var chat = $scope.findChat($scope.sender, user);
+			var chat = $scope.findChat($scope.currentUser, user);
 
 			user.muted = !user.muted;
 
@@ -124,7 +124,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 
 		function addUser(user) {
 			// Don't add me
-			if (user.name === $scope.sender.name)
+			if (user.name === $scope.currentUser.name)
 				return;
 
 			$scope.users.push(user);
@@ -157,7 +157,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 					_.each(users, addUser);
 
 					// Subscribe to messages observer
-					MessagesObserver.subscribe(this, undefined, $scope.sender.name, recieveMessage);
+					MessagesObserver.subscribe(this, undefined, $scope.currentUser.name, recieveMessage);
 				});
 		}
 
@@ -166,7 +166,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 			_.each($scope.chats, function (chat) { $scope.closeChat(chat); });
 
 			// Unsubscribe
-			MessagesObserver.unsubscribe(this, undefined, $scope.sender.name);
+			MessagesObserver.unsubscribe(this, undefined, $scope.currentUser.name);
 
 			ChatService.logout();
 		}
