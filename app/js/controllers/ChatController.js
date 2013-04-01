@@ -1,10 +1,11 @@
-chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'ChatObserver',
-	function ($scope, $location, ChatService, ChatObserver) {
+chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'MessagesObserver',
+	function ($scope, $location, ChatService, MessagesObserver) {
 
 		// Authenticated?
 		if (!ChatService.isAuthenticated())
 			$location.path("/login");
 
+		$scope.currentUser = ChatService.user;
 		$scope.users = [];
 		$scope.chats = [];
 		$scope.selectedChat = null;
@@ -12,21 +13,21 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Cha
 
 		$scope.selectUser = function(user) {
 			$scope.selectedUser = user;
-
-			if (user && !user.muted)
-				$scope.openChat(user);
-
-			$scope.selectedChat = $scope.findChat(user);
+			$scope.selectedChat = $scope.openChat($scope.currentUser, user);
 		};
 
-		$scope.openChat = function(user) {
+		$scope.openChat = function(sender, recipient) {
 
-			var chat = $scope.findChat(user);
+			if (!sender || !recipient || recipient.muted)
+				return null;
+
+			var chat = $scope.findChat(sender, recipient);
 
 			// Create a new chat if it doesn't exist
 			if (!chat) {
 				chat = {
-					user : user,
+					sender : sender,
+					recipient : recipient,
 					messages : [],
 					addMessage : function(message) {
 						var lastMessage = _.last(chat.messages);
@@ -37,6 +38,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Cha
 							return;
 						}
 
+						// Ensure messages are sorted chronological
 						for (var i = chat.messages.length - 1; i >= 0; i--) {
 							var currentMessage = chat.messages[i];
 
@@ -44,7 +46,8 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Cha
 							if (currentMessage.id === message.id)
 								return;
 
-							if (currentMessage < message.id) {
+							// Add message before currentMessage
+							if (currentMessage.id < message.id) {
 								chat.message.splice(i, 0, message);
 								return;
 							}
@@ -52,22 +55,24 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Cha
 					}
 				};
 
-				// Subscribe to messageReceived observer
-				ChatObserver.messageReceived.subscribe(chat, chat.user.name, ChatService.user.name, chat.addMessage);
-				ChatObserver.messageReceived.subscribe(chat, ChatService.user.name, chat.user.name, chat.addMessage);
+				// Subscribe to messages observer
+				MessagesObserver.subscribe(chat, chat.recipient.name, chat.sender.name, chat.addMessage);
+				MessagesObserver.subscribe(chat, chat.sender.name, chat.recipient.name, chat.addMessage);
 
 				$scope.chats.push(chat);
 			}
 
 			$scope.selectedChat = chat;
+
+			return chat;
 		};
 
 		$scope.closeChat = function(chat) {
 			$scope.chats = _.without($scope.chats, chat);
 
-			// Unsubscribe from messageReceived observer
-			ChatObserver.messageReceived.unsubscribe(chat, chat.user.name, ChatService.user.name);
-			ChatObserver.messageReceived.unsubscribe(chat, ChatService.user.name, chat.user.name);
+			// Unsubscribe from messages observer
+			MessagesObserver.unsubscribe(chat, chat.recipient.name, $scope.currentUser.name);
+			MessagesObserver.unsubscribe(chat, $scope.currentUser.name, chat.recipient.name);
 
 			if ($scope.selectedChat === chat) {
 				// Set selection to first chat's user
@@ -82,7 +87,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Cha
 			if (!chat)
 				return;
 
-			ChatService.sendMessage(chat.user, text);
+			ChatService.sendMessage(chat.recipient, text);
 		};
 
 		$scope.toggleMute = function(user) {
@@ -90,7 +95,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Cha
 
 			// if user gets muted, close its chat
 			if (user.muted) {
-				$scope.closeChat($scope.findChat(user));
+				$scope.closeChat($scope.findChat($scope.currentUser, user));
 			}
 		};
 
@@ -99,14 +104,14 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Cha
 			$location.path("/login");
 		};
 
-		$scope.findChat = function(user) {
-			return _.find($scope.chats, function(chat) { return chat.user === user; });
+		$scope.findChat = function(sender, recipient) {
+			return _.find($scope.chats, function(chat) { return chat.sender === sender && chat.recipient === recipient; });
 		};
 
 		function refreshUsers() {
 			ChatService.getUsers()
 				.success(function(users) {
-					$scope.users = _.filter(users, function(user) { return user.name !== ChatService.user.name; });
+					$scope.users = _.filter(users, function(user) { return user.name !== $scope.currentUser.name; });
 				});
 		}
 

@@ -1,5 +1,5 @@
 
-<div class="container-fluid chat">
+<div class="container-fluid chat" ng-class="{invisible:!currentUser}">
 	<div class="row-fluid">
 
 		<!-- Sidebar: only visible when > 768px -->
@@ -9,7 +9,7 @@
 				 	<li class="nav-header">Gebruikers</li>
 					<li ng-repeat="user in users" ng-click="selectUser(user)" ng-class="{active:!user.muted && selectedUser==user}" class="user">
 						<a>
-							<i class="" ng-class="{invisible:!(user.muted || findChat(user)), 'icon-eye-open':!user.muted, 'icon-volume-off':user.muted}" ng-click="toggleMute(user)"></i>
+							<i class="" ng-class="{invisible:!(user.muted || findChat(currentUser, user)), 'icon-eye-open':!user.muted, 'icon-volume-off':user.muted}" ng-click="toggleMute(user)"></i>
 							{{user.name|truncate:16}}
 						</a>
 
@@ -24,9 +24,9 @@
 			<!-- Tabs: only visible when > 768px -->
 			<div class="tabs span8">
 				<ul class="nav nav-tabs">
-					<li ng-repeat="chat in chats" ng-class="{active:chat==selectedChat}" ng-click="selectUser(chat.user)">
-				 		<a href="#{{chat.user.name}}" data-toggle="tab">
-				 			{{chat.user.name|truncate:16}}&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
+					<li ng-repeat="chat in chats" ng-class="{active:chat==selectedChat}" ng-click="selectUser(chat.recipient)">
+				 		<a href="#{{chat.recipient.name}}" data-toggle="tab">
+				 			{{chat.recipient.name|truncate:16}}&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
 				 		</a>
 				 	</li>
 				</ul>
@@ -34,14 +34,14 @@
 
 			<!-- Tab contents -->
 			<div class="tab-content">
-				<div ng-repeat="chat in chats" id="{{chat.user.name}}" class="tab-pane" ng-class="{active:chat==selectedChat}">
+				<div ng-repeat="chat in chats" id="{{chat.recipient.name}}" class="tab-pane" ng-class="{active:chat==selectedChat}">
 					<!-- Messages -->
 					<div class="messages">
-						<div ng-repeat="message in chat.messages" class="popover" ng-class="{right:message.sender==chat.user.name, left:message.sender!=chat.user.name}">
+						<div ng-repeat="message in chat.messages" class="popover" ng-class="{right:message.sender==chat.recipient.name, left:message.sender!=chat.recipient.name}">
 							<div class="arrow"></div>
 							<div class="popover-content">
 								<p>{{message.content}}</p>
-								<i>{{message.timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}</i>
+								<i>{{message.timestamp | date:"dd-MM-yyyy HH:mm:ss"}}</i>
 							</div>
 						</div>
 					</div>
