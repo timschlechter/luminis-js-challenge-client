@@ -97,11 +97,13 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 		};
 
 		$scope.toggleMute = function (user) {
+			var chat = $scope.findChat($scope.currentUser, user);
+
 			user.muted = !user.muted;
 
 			// if user gets muted, close its chat
-			if (user.muted) {
-				$scope.closeChat($scope.findChat($scope.currentUser, user));
+			if (user.muted && chat) {
+				$scope.closeChat(chat);
 			}
 		};
 
