@@ -4,7 +4,7 @@ chatApp.factory('MessagesObserver', ['ChatService',
 		var observer = {
 			subscriptions : [],
 
-			subscribe : function(subscriber, sender, recipient, callback) {
+			subscribe : function (subscriber, sender, recipient, callback) {
 				var subscription = createSubscription(subscriber, sender, recipient, callback);
 				this.subscriptions.push(subscription);
 
@@ -12,10 +12,10 @@ chatApp.factory('MessagesObserver', ['ChatService',
 				observe(subscription, true);
 			},
 
-			unsubscribe : function(subscriber, sender, recipient) {
+			unsubscribe : function (subscriber, sender, recipient) {
 				var subscription = createSubscription(subscriber, sender, recipient);
 				this.subscriptions =
-					_.reject(this.subscriptions, function(other) {
+					_.reject(this.subscriptions, function (other) {
 						return subscription.equals(other);
 					});
 			}
@@ -28,7 +28,7 @@ chatApp.factory('MessagesObserver', ['ChatService',
 				recipient : recipient,
 				callback : callback,
 				observed : [],
-				equals : function(other) {
+				equals : function (other) {
 					return	this.subscriber === other.subscriber &&
 							this.sender === other.sender &&
 							this.recipient === other.recipient;
@@ -41,10 +41,10 @@ chatApp.factory('MessagesObserver', ['ChatService',
 				recipients = _.pluck(subscriptions, 'recipient');
 
 			// iterate over each unique recipient to minimize server calls
-			_.each(_.uniq(recipients), function(recipient) {
+			_.each(_.uniq(recipients), function (recipient) {
 				// Retrieve all messages sent to recipient
 				ChatService.getMessages(recipient)
-					.success(function(messages) {
+					.success(function (messages) {
 						// Filter all subscriptions matching current recipient
 						var matchingSubscriptions = _.filter(subscriptions, function (subscription) { return subscription.recipient === recipient; });
 

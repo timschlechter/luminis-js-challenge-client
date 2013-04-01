@@ -4,21 +4,21 @@ chatApp.factory('ChatService', ['$http', '$q',
 			rootUrl : '',
 			authenticatedUser : null,
 
-			login : function(username) {
+			login : function (username) {
 				var chatService = this,
 					defer = $q.defer();
 
 				this.getUsers()
-					.success(function(users) {
+					.success(function (users) {
 						// try find existing user
-						chatService.authenticatedUser = _.filter(users, function(user) { return user.name === username; })[0] || null;
+						chatService.authenticatedUser = _.filter(users, function (user) { return user.name === username; })[0] || null;
 
 						// existing found, resolve promise
 						if (chatService.authenticatedUser) {
 							defer.resolve();
 						} else {
 							chatService.createUser(username)
-								.success(function() {
+								.success(function () {
 									// new user created, resolve promise
 									defer.resolve();
 								});
@@ -28,37 +28,37 @@ chatApp.factory('ChatService', ['$http', '$q',
 				return defer.promise;
 			},
 
-			logout : function() {
+			logout : function () {
 				this.authenticatedUser = null;
 			},
 
-			createUser : function(username) {
+			createUser : function (username) {
 				var data = { name: username };
 
 				return $http.post(this.rootUrl,  angular.toJson(data))
-							.success(function() {
+							.success(function () {
 								this.authenticatedUser = { name : username };
 							})
 							.error(this.handleHttpError);
 			},
 
-			getUsers : function() {
+			getUsers : function () {
 				return $http.get(this.rootUrl)
 							.error(this.handleHttpError);
 			},
 
-			getMessages : function(username) {
+			getMessages : function (username) {
 				return $http.get(this.rootUrl + username)
-							.success(function(messages) {
+							.success(function (messages) {
 								// HACK: force each timestamp to be of type Date
-								_.each(messages, function(message) {
+								_.each(messages, function (message) {
 									message.timestamp = new Date(message.timestamp);
 								});
 							})
 							.error(this.handleHttpError);
 			},
 
-			sendMessage : function(user, text) {
+			sendMessage : function (user, text) {
 				var data = {
 					"sender": this.authenticatedUser.name,
 					"content": text
@@ -68,7 +68,7 @@ chatApp.factory('ChatService', ['$http', '$q',
 							.error(this.handleHttpError);
 			},
 
-			handleHttpError : function(data, status, headers, config) {
+			handleHttpError : function (data, status, headers, config) {
 				console.log(config);
 			}
 		};
