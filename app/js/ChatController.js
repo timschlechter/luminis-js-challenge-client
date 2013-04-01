@@ -1,4 +1,12 @@
 chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'MessagesObserver', 'WolframAlpha',
+	/**
+	 * @class ChatController
+	 * @param {$scope} $scope
+	 * @param {$location} $location
+	 * @param {ChatService} ChatService
+	 * @param {MessagesObserver} MessagesObserver
+	 * @param {WolframAlpha} WolframAlpha
+	 */
 	function ChatController($scope, $location, ChatService, MessagesObserver, WolframAlpha) {
 
 		// Authenticated?
@@ -11,6 +19,11 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 		$scope.selectedChat = null;
 		$scope.selectedUser = null;
 
+		/**
+		 * @method selectUser
+		 * @param  {[type]} user
+		 * @return {[type]}
+		 */
 		$scope.selectUser = function (user) {
 			$scope.selectedUser = user;
 			$scope.selectedChat = $scope.openChat($scope.currentUser, user);

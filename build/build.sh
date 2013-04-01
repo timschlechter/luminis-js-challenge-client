@@ -3,3 +3,6 @@
 
 # Minify CSS
 ../node_modules/uglifycss/uglifycss ../app/css/styles.css > ../app/css/styles.min.css
+
+# Create Javascript documentation
+./node_modules/yuidocjs/lib/cli.js app/js -o app/docs
