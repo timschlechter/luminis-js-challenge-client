@@ -161,7 +161,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 
 		function destroy() {
 			// Close all chats
-			_.each($scope.chats, function (chat) { closeChat(chat); });
+			_.each($scope.chats, function (chat) { $scope.closeChat(chat); });
 
 			// Unsubscribe
 			MessagesObserver.unsubscribe(this, undefined, $scope.currentUser.name);

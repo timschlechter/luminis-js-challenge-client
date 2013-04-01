@@ -2,8 +2,8 @@
 	<h2>Aanmelden</h2>
 	<input type="text" class="input-block-level" placeholder="Gebruikersnaam" ng-model="username">
 
-	<select>
-		<option ng-repeat="service in services" ng-click="selectService(service)" ng-class="{active: service==serviceUrl}">{{service}}</option>
+	<select ng-model="serviceUrl" ng-change="selectService(serviceUrl)">
+		<option ng-repeat="service in services" ng-class="{active: service==serviceUrl}">{{service}}</option>
 	</select>
 
 	<label class="checkbox">
