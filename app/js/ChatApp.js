@@ -44,3 +44,5 @@ angular.module('filters', []).
             }
         };
 });
+
+    $.get('http://api.wolframalpha.com/v1/query?input=where%20are%20you&appid=6PXV9H-LE2LUEW989');
