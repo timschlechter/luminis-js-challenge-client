@@ -1,5 +1,11 @@
 chatApp.factory('WolframAlpha', ['ChatService', 'MessagesObserver', '$http',
-	function (ChatService, MessagesObserver, $http) {
+	/**
+	 * @class  WolframAlpha
+	 * @param  {ChatService} ChatService
+	 * @param  {MessagesObserver} MessagesObserver
+	 * @param  {$http} $http
+	 */
+	function WolframAlpha(ChatService, MessagesObserver, $http) {
 
 		function getAnswer(data) {
 			if (!(data && data[1] && data[1][5] && data[1][5][1]))

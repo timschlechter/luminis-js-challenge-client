@@ -1,11 +1,11 @@
 chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'MessagesObserver', 'WolframAlpha',
 	/**
 	 * @class ChatController
-	 * @param {$scope} $scope
-	 * @param {$location} $location
-	 * @param {ChatService} ChatService
-	 * @param {MessagesObserver} MessagesObserver
-	 * @param {WolframAlpha} WolframAlpha
+	 * @param {$scope}				$scope
+	 * @param {$location}			$location
+	 * @param {ChatService}			ChatService
+	 * @param {MessagesObserver}	MessagesObserver
+	 * @param {WolframAlpha}		WolframAlpha
 	 */
 	function ChatController($scope, $location, ChatService, MessagesObserver, WolframAlpha) {
 
