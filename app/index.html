@@ -7,11 +7,12 @@
 
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+  <!-- Production only files -->
   <link rel="stylesheet" type="text/css" href="css/styles.min.css" />
 </head>
 
 <body>
-
   <div ng-view />
 
   <script src="lib/jquery-1.9.1.min.js"></script>
@@ -20,12 +21,11 @@
   <script src="lib/angular/angular-resource.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 
+  <!-- Production only files. TODO: minify -->
   <script src="js/main.js"></script>
-  <script src="js/controllers/LoginController.js"></script>
-  <script src="js/controllers/ChatController.js"></script>
-  <script src="js/services/ChatService.js"></script>
-  <script src="js/services/MessagesObserver.js"></script>
-  <script src="js/filters/truncate.js"></script>
-  
+  <script src="js/LoginController.js"></script>
+  <script src="js/ChatController.js"></script>
+  <script src="js/ChatService.js"></script>
+  <script src="js/MessagesObserver.js"></script>
 </body>
 </html>
