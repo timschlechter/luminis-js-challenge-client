@@ -10,6 +10,7 @@
 						<a>
 							<i class="" ng-class="{invisible:!(user.muted || findChat(currentUser, user)), 'icon-eye-open':!user.muted, 'icon-volume-off':user.muted}" ng-click="toggleMute(user)"></i>
 							{{user.name|truncate:16}}
+							<i class="icon-inbox pull-right" ng-hide="!user.newMessages"></i>
 						</a>
 
 					</li>
@@ -25,6 +26,7 @@
 				<ul class="nav nav-tabs">
 					<li ng-repeat="chat in chats" ng-class="{active:chat==selectedChat}" ng-click="selectUser(chat.recipient)">
 				 		<a href="#{{chat.recipient.name}}" data-toggle="tab">
+							<i class="icon-inbox" ng-hide="!chat.recipient.newMessages"></i>
 				 			{{chat.recipient.name|truncate:16}}&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
 				 		</a>
 				 	</li>

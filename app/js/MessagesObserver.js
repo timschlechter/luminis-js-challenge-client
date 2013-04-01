@@ -7,6 +7,9 @@ chatApp.factory('MessagesObserver', ['ChatService',
 			subscribe : function(subscriber, sender, recipient, callback) {
 				var subscription = createSubscription(subscriber, sender, recipient, callback);
 				this.subscriptions.push(subscription);
+
+				// Force once for current subscription
+				observe(subscription, true);
 			},
 
 			unsubscribe : function(subscriber, sender, recipient) {
@@ -24,6 +27,7 @@ chatApp.factory('MessagesObserver', ['ChatService',
 				sender : sender,
 				recipient : recipient,
 				callback : callback,
+				observed : [],
 				equals : function(other) {
 					return	this.subscriber === other.subscriber &&
 							this.sender === other.sender &&
@@ -32,8 +36,9 @@ chatApp.factory('MessagesObserver', ['ChatService',
 			};
 		}
 
-		function observe() {
-			var recipients = _.pluck(observer.subscriptions, 'recipient');
+		function observe(subscription, singleObserve) {
+			var subscriptions = subscription ? [subscription] : observer.subscriptions,
+				recipients = _.pluck(subscriptions, 'recipient');
 
 			// iterate over each unique recipient to minimize server calls
 			_.each(_.uniq(recipients), function(recipient) {
@@ -41,19 +46,28 @@ chatApp.factory('MessagesObserver', ['ChatService',
 				ChatService.getMessages(recipient)
 					.success(function(messages) {
 						// Filter all subscriptions matching current recipient
-						var matchingSubscriptions = _.filter(observer.subscriptions, function (subscription) { return subscription.recipient === recipient; });
+						var matchingSubscriptions = _.filter(subscriptions, function (subscription) { return subscription.recipient === recipient; });
 
 						_.each(matchingSubscriptions, function (subscription) {
 							_.each(messages, function (message) {
+
+								// No callback on messages allready observed
+								if (_.contains(subscription.observed, message.id)) {
+									return;
+								}
+
 								// Callback only on messages sent by sender
-								if (message.sender === subscription.sender)
+								if (!subscription.sender || message.sender === subscription.sender) {
+									subscription.observed.push(message.id);
 									subscription.callback(message);
+								}
 							});
 						});
 					});
 			});
 
-			setTimeout(observe, 2000);
+			if (!singleObserve)
+				setTimeout(observe, 2000);
 		}
 
 		// Start observing
