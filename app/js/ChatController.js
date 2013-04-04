@@ -1,13 +1,13 @@
-chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'MessagesObserver', 'WolframAlpha',
+chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'MessageObserver', 'WolframAlpha',
 	/**
 	 * @class ChatController
-	 * @param {$scope}				$scope
-	 * @param {$location}			$location
-	 * @param {ChatService}			ChatService
-	 * @param {MessagesObserver}	MessagesObserver
-	 * @param {WolframAlpha}		WolframAlpha
+	 * @param {$scope}			$scope
+	 * @param {$location}		$location
+	 * @param {ChatService}		ChatService
+	 * @param {MessageObserver}	MessageObserver
+	 * @param {WolframAlpha}	WolframAlpha
 	 */
-	function ChatController($scope, $location, ChatService, MessagesObserver, WolframAlpha) {
+	function ChatController($scope, $location, ChatService, MessageObserver, WolframAlpha) {
 
 		// Authenticated?
 		if (!ChatService.authenticatedUser)
@@ -44,36 +44,38 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 					messages : [],
 					lastMessageReceived : null,
 					recieveMessage : function (message) {
-						console.log('Chat recieves message: ' + message.id);
-
 						var lastMessage = _.last(chat.messages);
 
 						// First message or newest message
 						if (chat.messages.length === 0 || lastMessage.id < message.id) {
 							chat.messages.push(message);
-							return;
+						} else {
+							// Ensure messages are sorted chronological
+							for (var i = 0; i < chat.messages.length; i++) {
+								var currentMessage = chat.messages[i];
+
+								// Allready got the message
+								if (currentMessage.id === message.id)
+									return;
+
+								if (message.id < currentMessage.id) {
+									// Add message before currentMessage
+									chat.messages.splice(i, 0, message);
+									return;
+								}
+							}
 						}
 
-						// Ensure messages are sorted chronological
-						for (var i = 0; i < chat.messages.length; i++) {
-							var currentMessage = chat.messages[i];
-
-							// Allready got the message
-							if (currentMessage.id === message.id)
-								return;
-
-							if (message.id < currentMessage.id) {
-								// Add message before currentMessage
-								chat.messages.splice(i, 0, message);
-								return;
-							}
+						// force update of bindings
+						if(!$scope.$$phase) {
+							$scope.$apply();
 						}
 					}
 				};
 
 				// Subscribe to messages observer
-				MessagesObserver.subscribe(chat, chat.recipient.name, chat.sender.name, chat.recieveMessage);
-				MessagesObserver.subscribe(chat, chat.sender.name, chat.recipient.name, chat.recieveMessage);
+				MessageObserver.subscribe(chat, chat.recipient.name, chat.sender.name, chat.recieveMessage);
+				MessageObserver.subscribe(chat, chat.sender.name, chat.recipient.name, chat.recieveMessage);
 
 				$scope.chats.push(chat);
 			}
@@ -90,8 +92,8 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 			$scope.chats = _.without($scope.chats, chat);
 
 			// Unsubscribe from messages observer
-			MessagesObserver.unsubscribe(chat, chat.recipient.name, $scope.currentUser.name);
-			MessagesObserver.unsubscribe(chat, $scope.currentUser.name, chat.recipient.name);
+			MessageObserver.unsubscribe(chat, chat.recipient.name, $scope.currentUser.name);
+			MessageObserver.unsubscribe(chat, $scope.currentUser.name, chat.recipient.name);
 
 			if ($scope.selectedChat === chat) {
 				// Set selection to first chat's user
@@ -107,6 +109,8 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 				return;
 
 			ChatService.sendMessage(chat.sender.name, chat.recipient.name, text);
+
+			$scope.text = '';
 		};
 
 		$scope.toggleMute = function (user) {
@@ -164,16 +168,20 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 
 			WolframAlpha.start();
 
+			MessageObserver.start();
+
 			ChatService.getUsers()
 				.success(function (users) {
 					_.each(users, addUser);
 
 					// Subscribe to messages observer
-					MessagesObserver.subscribe(this, undefined, $scope.currentUser.name, recieveMessage);
+					MessageObserver.subscribe(this, undefined, $scope.currentUser.name, recieveMessage);
 				});
 		}
 
 		function destroy() {
+
+			MessageObserver.stop();
 
 			WolframAlpha.stop();
 
@@ -181,7 +189,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 			_.each($scope.chats, function (chat) { $scope.closeChat(chat); });
 
 			// Unsubscribe
-			MessagesObserver.unsubscribe(this, undefined, $scope.currentUser.name);
+			MessageObserver.unsubscribe(this, undefined, $scope.currentUser.name);
 
 			ChatService.logout();
 		}

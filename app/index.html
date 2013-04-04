@@ -20,6 +20,8 @@
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular/angular-resource.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/socket.io.js"></script>
+  <script src="http://luminisjschallenge-server.azurewebsites.net/socket.io/socket.io.js"></script>
 
   <!-- Production only files. TODO: minify -->
   <script src="js/ChatApp.js"></script>
@@ -27,6 +29,8 @@
   <script src="js/ChatController.js"></script>
   <script src="js/ChatService.js"></script>
   <script src="js/MessagesObserver.js"></script>
+  <script src="js/MessagesObservers/PollingMessageObserver.js"></script>
+  <script src="js/MessagesObservers/SocketIOMessageObserver.js"></script>
   <script src="js/WolframAlpha.js"></script>
 </body>
 </html>

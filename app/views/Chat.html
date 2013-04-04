@@ -57,24 +57,26 @@
 		<div class="navbar-form pull-left toolbar">
 
 			<div class="navbar-inner">
-				<input type="text" ng-model="text" class="pull-left span12">
-				<button class="btn btn-primary pull-right" ng-class="{disabled:!selectedChat}" ng-click="sendMessage(selectedChat, text)">Verstuur</button>
+				<form ng-submit="sendMessage(selectedChat, text)">
+					<input type="text" ng-model="text" class="pull-left span12">
+					<button class="btn btn-primary pull-right" ng-class="{disabled:!selectedChat}">Verstuur</button>
 
-				<div class="btn-group dropup pull-left">
-					<a class="btn dropdown-toggle" data-toggle="dropdown">
-						Menu
-						<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li ng-repeat="user in users" ng-click="selectUser(user)">
-							<a>{{user.name|truncate:16}}</a>
-						</li>
+					<div class="btn-group dropup pull-left">
+						<a class="btn dropdown-toggle" data-toggle="dropdown">
+							Menu
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li ng-repeat="user in users" ng-click="selectUser(user)">
+								<a>{{user.name|truncate:16}}</a>
+							</li>
 
-						<li class="divider"></li>
-						<li ng-click="logout()"><a>Afmelden</a></li>
-					</ul>
-				</div>
-
+							<li class="divider"></li>
+							<li ng-click="logout()"><a>Afmelden</a></li>
+						</ul>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>

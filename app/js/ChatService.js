@@ -59,12 +59,6 @@ chatApp.factory('ChatService', ['$http', '$q',
 
 			getMessages : function (username) {
 				return $http.get(this.rootUrl + username)
-							.success(function (messages) {
-								// HACK: force each timestamp to be of type Date
-								_.each(messages, function (message) {
-									message.timestamp = new Date(message.timestamp);
-								});
-							})
 							.error(this.handleHttpError);
 			},
 			sendMessage : function (sender, recipient, text) {

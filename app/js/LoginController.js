@@ -31,6 +31,6 @@ chatApp.controller('LoginController',
 					});
 		};
 
-		// $scope.login('Tim');
+		$scope.login('Tim');
 	}
 );
