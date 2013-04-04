@@ -166,7 +166,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 
 		function init() {
 
-			WolframAlpha.start();
+			//WolframAlpha.start();
 
 			MessageObserver.start();
 
@@ -183,7 +183,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 
 			MessageObserver.stop();
 
-			WolframAlpha.stop();
+			//WolframAlpha.stop();
 
 			// Close all chats
 			_.each($scope.chats, function (chat) { $scope.closeChat(chat); });
