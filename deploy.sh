@@ -106,13 +106,14 @@ cd build
 ./build.sh
 cd ..
 
+# Switch develop/production index.html
+rm app/index.html
+mv app/production.html app/index.html
+
 # 4. KuduSync
 $KUDU_SYNC_CMD -v 50 -f "$DEPLOYMENT_SOURCE/app" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh" 2> /dev/null
 exitWithMessageOnError "Kudu Sync failed"
 
-# 5. Switch develop/production index.html
-rm app/index.html
-mv app/production.html app/index.html
 
 ##################################################################################################################################
 
