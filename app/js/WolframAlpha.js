@@ -1,4 +1,4 @@
-chatApp.factory('WolframAlpha', ['ChatService', 'PollingMessageObserver', '$http',
+chatApp.factory('WolframAlpha', ['ChatService', 'MessageObserver', '$http',
 	/**
 	 * @class  WolframAlpha
 	 * @param  {ChatService} ChatService
@@ -13,8 +13,6 @@ chatApp.factory('WolframAlpha', ['ChatService', 'PollingMessageObserver', '$http
 
 			return data[1][5][3][3][1];
 		}
-
-		var messageObserver = new MessageObserver();
 
 		return {
 			name : 'Wolfram Alpha',
@@ -38,7 +36,7 @@ chatApp.factory('WolframAlpha', ['ChatService', 'PollingMessageObserver', '$http
 				ChatService.sendMessage(this.name, this.userListeningTo, 'Hello!');
 
 				// Subscribe to auto respond
-				messageObserver.subscribe(this, this.userListeningTo, this.name, function(message) {
+				MessageObserver.subscribe(this, this.userListeningTo, this.name, function(message) {
 
 					// Only response to messages received from current authenticated user
 					if (message.sender !== wolframalpha.userListeningTo)
@@ -57,9 +55,6 @@ chatApp.factory('WolframAlpha', ['ChatService', 'PollingMessageObserver', '$http
 						});
 				});
 
-				// Start observing
-				messageObserver.start();
-
 				this.started = true;
 			},
 
@@ -67,9 +62,8 @@ chatApp.factory('WolframAlpha', ['ChatService', 'PollingMessageObserver', '$http
 				if (!this.started)
 					return;
 
-				messageObserver.stop();
 				ChatService.sendMessage(this.name, this.userListeningTo, 'Bye!');
-				messageObserver.unsubscribe(this, undefined, this.name);
+				MessageObserver.unsubscribe(this, undefined, this.name);
 				this.started = false;
 			}
 		};
