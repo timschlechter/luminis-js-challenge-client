@@ -1,7 +1,7 @@
 chatApp.controller('LoginController',
 	function LoginController($scope, $location, $routeParams, ChatService) {
 
-		$scope.serviceUrl = 'http://localhost:8080/';
+		$scope.serviceUrl = 'http://luminisjschallenge.herokuapp.com/';
 		$scope.services = [
 				'http://luminisjschallenge.herokuapp.com/',
 				'http://planetmarrs.xs4all.nl:8787/server/',
