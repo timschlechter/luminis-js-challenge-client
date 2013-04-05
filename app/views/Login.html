@@ -1,4 +1,5 @@
-<div class="login">
+
+<form ng-submit="login(username)" class="login">
 	<h2>Aanmelden</h2>
 	<input type="text" class="input-block-level" placeholder="Gebruikersnaam" ng-model="username">
 
@@ -10,5 +11,5 @@
 	  <input type="checkbox" value="remember-me"> Onthouden
 	</label>
 	
-	<button class="btn btn-large btn-primary" ng-click="login(username)">OK</button>
-</div>
+	<button class="btn btn-large btn-primary">OK</button>
+</form>

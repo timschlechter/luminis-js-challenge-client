@@ -1,39 +1,12 @@
 chatApp.factory('PollingMessageObserver', ['ChatService',
-	function PollingMessageObserver (ChatService) {
+	function (ChatService) {
 
-		var started = false;
+		function PollingMessageObserver () {
+			this.started = false;
+			this.subscriptions = [];
+		}
 
-		var observer = {
-				subscriptions : [],
-
-				start : function () {
-					started = true; observe();
-				},
-
-				stop : function () {
-					started = false;
-				},
-
-				subscribe : function (subscriber, sender, recipient, callback) {
-					var subscription = createSubscription(subscriber, sender, recipient, callback);
-					this.subscriptions.push(subscription);
-
-					// Force once for current subscription
-					observe(subscription, true);
-
-					return subscription;
-				},
-
-				unsubscribe : function (subscriber, sender, recipient) {
-					var subscription = createSubscription(subscriber, sender, recipient);
-					this.subscriptions =
-						_.reject(this.subscriptions, function (other) {
-							return  subscription.subscriber === other.subscriber &&
-									subscription.sender === other.sender &&
-									subscription.recipient === other.recipient;
-						});
-				}
-			};
+		PollingMessageObserver.prototype.constructor = PollingMessageObserver;
 
 		function createSubscription(subscriber, sender, recipient, callback) {
 			return {
@@ -46,7 +19,8 @@ chatApp.factory('PollingMessageObserver', ['ChatService',
 		}
 
 		function observe(subscription, observeOnce) {
-			var subscriptions = subscription ? [subscription] : observer.subscriptions,
+			var observer = this,
+				subscriptions = subscription ? [subscription] : observer.subscriptions,
 				recipients = _.pluck(subscriptions, 'recipient');
 
 			// iterate over each unique recipient to minimize server calls
@@ -75,10 +49,44 @@ chatApp.factory('PollingMessageObserver', ['ChatService',
 					});
 			});
 
-			if (!observeOnce && started)
-				setTimeout(observe, 5000);
+			if (!observeOnce && this.started)
+				setTimeout(function() {
+					observe.apply(observer);
+				}, 5000);
 		}
 
-		return observer;
+		PollingMessageObserver.prototype.start = function () {
+			started = true; observe();
+		};
+
+		PollingMessageObserver.prototype.start = function () {
+			started = true; observe();
+		};
+
+		PollingMessageObserver.prototype.stop = function () {
+			started = false;
+		};
+
+		PollingMessageObserver.prototype.subscribe = function (subscriber, sender, recipient, callback) {
+			var subscription = createSubscription(subscriber, sender, recipient, callback);
+			this.subscriptions.push(subscription);
+
+			// Force once for current subscription
+			observe.apply(this, subscription, true);
+
+			return subscription;
+		};
+
+		PollingMessageObserver.prototype.unsubscribe = function (subscriber, sender, recipient) {
+			var subscription = createSubscription(subscriber, sender, recipient);
+			this.subscriptions =
+				_.reject(this.subscriptions, function (other) {
+					return  subscription.subscriber === other.subscriber &&
+							subscription.sender === other.sender &&
+							subscription.recipient === other.recipient;
+				});
+		};
+
+		return PollingMessageObserver;
 	}
 ]);

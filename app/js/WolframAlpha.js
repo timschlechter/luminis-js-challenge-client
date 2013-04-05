@@ -1,4 +1,4 @@
-chatApp.factory('WolframAlpha', ['ChatService', 'MessageObserver', '$http',
+chatApp.factory('WolframAlpha', ['ChatService', 'PollingMessageObserver', '$http',
 	/**
 	 * @class  WolframAlpha
 	 * @param  {ChatService} ChatService

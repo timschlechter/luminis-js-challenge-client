@@ -1,5 +1,5 @@
-chatApp.factory('MessageObserver', ['SocketIOMessageObserver',
-	function MessageObserver (Strategy) {
-		return Strategy;
+chatApp.factory('MessageObserver', ['PollingMessageObserver',
+	function MessageObserver (MessageObserverStrategy) {
+		return new MessageObserverStrategy();
 	}
 ]);

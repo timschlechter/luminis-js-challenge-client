@@ -1,22 +1,25 @@
 chatApp.factory('SocketIOMessageObserver', ['PollingMessageObserver', 'ChatService',
-	function SocketIOMessageObserver (PollingMessageObserver, ChatService) {
+	function (PollingMessageObserver, ChatService) {
 
-		var observer = {
-			subscriptions : [],
-			start: PollingMessageObserver.start,
-			stop : PollingMessageObserver.stop,
-			subscribe : PollingMessageObserver.subscribe,
-			unsubscribe : PollingMessageObserver.unsubscribe
-		};
+		function SocketIOMessageObserver() {
+			PollingMessageObserver.call(this);
 
-		var socket = null;
+			this.socket = null;
+		}
 
-		observer.start = function() {
-			if (socket) return;
+		SocketIOMessageObserver.prototype = new PollingMessageObserver();
+		SocketIOMessageObserver.prototype.constructor = SocketIOMessageObserver;
 
-			socket = io.connect(ChatService.rootUrl);
+		SocketIOMessageObserver.prototype.start = function() {
 
-			socket.on('message', function(data) {
+			var observer = this;
+
+			if (this.socket)
+				return;
+
+			this.socket = io.connect(ChatService.rootUrl);
+
+			this.socket.on('message', function(data) {
 				var subscriptions = _.filter(observer.subscriptions,
 										function(subscription) {
 											return subscription.recipient === data.recipient;
@@ -26,23 +29,17 @@ chatApp.factory('SocketIOMessageObserver', ['PollingMessageObserver', 'ChatServi
 					subscription.callback(data.message);
 				});
 			});
+
+			io.connect();
 		};
 
-		observer.stop = function() {
-			if (socket) {
-				socket.disconnect();
-				socket = null;
+		SocketIOMessageObserver.prototype.stop = function() {
+			if (this.socket) {
+				this.socket.disconnect();
+				this.socket = null;
 			}
 		};
 
-		observer.subscribe = function (subscriber, sender, recipient, callback) {
-			PollingMessageObserver.subscribe.call(this, subscriber, sender, recipient, callback);
-		};
-
-		observer.unsubscribe = function (subscriber, sender, recipient, callback) {
-			PollingMessageObserver.subscribe.call(this, subscriber, sender, recipient);
-		};
-
-		return observer;
+		return SocketIOMessageObserver;
 	}
 ]);
