@@ -52,6 +52,20 @@
 					<input type="text" ng-model="text" class="pull-left span12" ng-disabled="!selectedChat" required placeholder="Type hier je bericht" >
 					<button class="btn btn-primary pull-right" ng-disabled="!selectedChat">Verstuur</button>
 
+					<!-- Options -->
+					<div class="btn-group dropup pull-left">
+						<a class="btn dropdown-toggle"  data-toggle="dropdown">
+							<i class="icon-cog"></i>
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li ng-click="toggleWolframAlpha()" ng-class="{active:wolframAlphaStarted}"><a>Wolfram Alpha</a></li>
+
+							<li class="divider"></li>
+							<li ng-click="logout()"><a>Afmelden</a></li>
+						</ul>
+					</div>
+
 					<!-- Users -->
 					<div class="btn-group dropup pull-left">
 						<a class="btn dropdown-toggle" data-toggle="dropdown">
@@ -71,20 +85,6 @@
 							<li ng-repeat="user in users" ng-click="toggleMute(user)"ng-class="{active:user.muted}">
 								<a>{{user.name|truncate:16}}</a>
 							</li>
-						</ul>
-					</div>
-
-					<!-- Options -->
-					<div class="btn-group dropup pull-left">
-						<a class="btn dropdown-toggle"  data-toggle="dropdown">
-							<i class="icon-cog"></i>
-							<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-							<li ng-click="toggleWolframAlpha()" ng-class="{active:wolframAlphaStarted}"><a>Wolfram Alpha</a></li>
-
-							<li class="divider"></li>
-							<li ng-click="logout()"><a>Afmelden</a></li>
 						</ul>
 					</div>
 				</form>
