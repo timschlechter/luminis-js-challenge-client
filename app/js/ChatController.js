@@ -19,6 +19,8 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 		$scope.selectedChat = null;
 		$scope.selectedUser = null;
 
+		$scope.wolframAlphaStarted = false;
+
 		/**
 		 * @method selectUser
 		 * @param  {[type]} user
@@ -31,7 +33,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 
 		$scope.openChat = function (sender, recipient) {
 
-			if (!sender || !recipient || recipient.muted)
+			if (!sender || !recipient)
 				return null;
 
 			var chat = $scope.findChat(sender, recipient);
@@ -139,7 +141,17 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 			$location.path("/login");
 		};
 
+		$scope.toggleWolframAlpha = function() {
+			if ($scope.wolframAlphaStarted)
+				WolframAlpha.stop();
+			else
+				WolframAlpha.start();
+
+			$scope.wolframAlphaStarted = !$scope.wolframAlphaStarted;
+		};
+
 		function addUser(user) {
+			user.isCurrentUser = $scope.currentUser.name === user.name;
 			$scope.users.push(user);
 		}
 
@@ -166,10 +178,6 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 
 		function init() {
 
-			//WolframAlpha.start();
-
-			MessageObserver.start();
-
 			ChatService.getUsers()
 				.success(function (users) {
 					_.each(users, addUser);
@@ -177,13 +185,15 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 					// Subscribe to messages observer
 					MessageObserver.subscribe(this, undefined, $scope.currentUser.name, recieveMessage);
 				});
+
+			MessageObserver.start();
 		}
 
 		function destroy() {
 
 			MessageObserver.stop();
 
-			//WolframAlpha.stop();
+			WolframAlpha.stop();
 
 			// Close all chats
 			_.each($scope.chats, function (chat) { $scope.closeChat(chat); });

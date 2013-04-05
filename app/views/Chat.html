@@ -4,17 +4,8 @@
 		<!-- Sidebar: only visible when > 768px -->
 		<div class="span3 sidebar">
 			<div class="well sidebar-nav onlybigscreen">
-				 <ul class="nav nav-list userlist">
-				 	<li class="nav-header">Gebruikers</li>
-					<li ng-repeat="user in users" ng-click="selectUser(user)" ng-class="{active:!user.muted && selectedUser==user}" class="user">
-						<a>
-							<i class="" ng-class="{invisible:!(user.muted), 'icon-volume-up':!user.muted, 'icon-volume-off':user.muted}" ng-click="toggleMute(user)"></i>
-							{{user.name|truncate:16}}
-							<i class="icon-comment pull-right" ng-hide="!user.newMessages"></i>
-						</a>
-
-					</li>
-				</ul>
+				<li class="nav-header">Gebruikers</li>
+				 <ul class="nav nav-list userlist" ng-include src="'views/UserList.html'"></ul>
 			</div>
 		</div>
 
@@ -58,18 +49,39 @@
 
 			<div class="navbar-inner">
 				<form ng-submit="sendMessage(selectedChat, text)">
-					<input type="text" ng-model="text" class="pull-left span12">
-					<button class="btn btn-primary pull-right" ng-class="{disabled:!selectedChat}">Verstuur</button>
+					<input type="text" ng-model="text" class="pull-left span12" ng-disabled="!selectedChat">
+					<button class="btn btn-primary pull-right" ng-disabled="!selectedChat">Verstuur</button>
 
+					<!-- Users -->
 					<div class="btn-group dropup pull-left">
 						<a class="btn dropdown-toggle" data-toggle="dropdown">
-							Menu
+							<i class="icon-comment"></i>
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" ng-include src="'views/UserList.html'"></ul>
+					</div>
+
+					<!-- Mute -->
+					<div class="btn-group dropup pull-left">
+						<a class="btn dropdown-toggle"  data-toggle="dropdown">
+							<i class="icon-volume-off"></i>
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li ng-repeat="user in users" ng-click="selectUser(user)">
+							<li ng-repeat="user in users" ng-click="toggleMute(user)"ng-class="{active:user.muted}">
 								<a>{{user.name|truncate:16}}</a>
 							</li>
+						</ul>
+					</div>
+
+					<!-- Options -->
+					<div class="btn-group dropup pull-left">
+						<a class="btn dropdown-toggle"  data-toggle="dropdown">
+							<i class="icon-cog"></i>
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li ng-click="toggleWolframAlpha()" ng-class="{active:wolframAlphaStarted}"><a>Wolfram Alpha</a></li>
 
 							<li class="divider"></li>
 							<li ng-click="logout()"><a>Afmelden</a></li>

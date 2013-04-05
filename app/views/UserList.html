@@ -1,0 +1,8 @@
+<li ng-repeat="user in users | filter : { isCurrentUser : false }" ng-click="selectUser(user)" ng-class="{active:!user.muted && selectedUser==user}" class="user">
+	<a>
+		<i class="icon-volume-off" ng-show="user.muted"></i>
+		<i class="icon-" ng-show="!user.muted"></i>
+		<span ng-class="{muted:user.muted}">{{user.name|truncate:16}}</span>
+		<i class="icon-comment pull-right" ng-hide="!user.newMessages"></i>
+	</a>
+</li>

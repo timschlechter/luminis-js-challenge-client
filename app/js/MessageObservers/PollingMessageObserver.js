@@ -28,6 +28,9 @@ chatApp.factory('PollingMessageObserver', ['ChatService',
 				// Retrieve all messages sent to recipient
 				ChatService.getMessages(recipient)
 					.success(function (messages) {
+						if (!messages.length)
+							return;
+
 						// Filter all subscriptions matching current recipient
 						var matchingSubscriptions = _.filter(subscriptions, function (subscription) { return subscription.recipient === recipient; });
 
@@ -56,15 +59,12 @@ chatApp.factory('PollingMessageObserver', ['ChatService',
 		}
 
 		PollingMessageObserver.prototype.start = function () {
-			started = true; observe();
-		};
-
-		PollingMessageObserver.prototype.start = function () {
-			started = true; observe();
+			this.started = true;
+			observe.call(this);
 		};
 
 		PollingMessageObserver.prototype.stop = function () {
-			started = false;
+			this.started = false;
 		};
 
 		PollingMessageObserver.prototype.subscribe = function (subscriber, sender, recipient, callback) {
