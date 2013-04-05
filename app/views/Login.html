@@ -1,9 +1,9 @@
 
 <form ng-submit="login(username)" class="login">
 	<h2>Aanmelden</h2>
-	<input type="text" class="input-block-level" placeholder="Gebruikersnaam" ng-model="username">
+	<input type="text" class="input-block-level" placeholder="Gebruikersnaam" ng-model="username" required>
 
-	<select ng-model="serviceUrl" ng-change="selectService(serviceUrl)">
+	<select ng-model="serviceUrl" ng-change="selectService(serviceUrl)" required>
 		<option ng-repeat="service in services" ng-class="{active: service==serviceUrl}">{{service}}</option>
 	</select>
 

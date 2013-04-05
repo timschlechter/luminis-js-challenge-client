@@ -8,9 +8,8 @@
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 
-  <!-- Debug only files -->
-  <link href="styles/styles.less" rel="stylesheet/less" />
-
+  <!-- Production only files -->
+  <link rel="stylesheet" type="text/css" href="css/styles.min.css" />
 </head>
 
 <body>
@@ -21,10 +20,10 @@
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular/angular-resource.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/socket.io.js"></script>
   <script src="http://luminisjschallenge-server.azurewebsites.net/socket.io/socket.io.js"></script>
 
-  <!-- Debug only files -->
-  <script src="lib/less-1.3.3.js"></script>
+  <!-- Production only files. TODO: minify -->
   <script src="js/ChatApp.js"></script>
   <script src="js/LoginController.js"></script>
   <script src="js/ChatController.js"></script>
