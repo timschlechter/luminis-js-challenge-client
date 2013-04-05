@@ -48,9 +48,9 @@
 		<div class="navbar-form pull-left toolbar">
 
 			<div class="navbar-inner">
-				<form ng-submit="sendMessage(selectedChat, text)">
+				<form ng-submit="sendMessage(selectedChat, text)" name="sendMessageForm">
 					<input type="text" ng-model="text" class="pull-left span12" ng-disabled="!selectedChat" required placeholder="Type hier je bericht" >
-					<button class="btn btn-primary pull-right" ng-disabled="!selectedChat">Verstuur</button>
+					<button class="btn btn-primary pull-right" ng-disabled="!(sendMessageForm.$valid && selectedChat)">Verstuur</button>
 
 					<!-- Users -->
 					<div class="btn-group dropup pull-left">
@@ -73,7 +73,7 @@
 							</li>
 						</ul>
 					</div>
-					
+
 					<!-- Options -->
 					<div class="btn-group dropup pull-left">
 						<a class="btn dropdown-toggle"  data-toggle="dropdown">
