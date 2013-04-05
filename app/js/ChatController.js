@@ -48,6 +48,10 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 					recieveMessage : function (message) {
 						var lastMessage = _.last(chat.messages);
 
+						// Muted
+						if (this.sender.muted)
+							return;
+
 						// First message or newest message
 						if (chat.messages.length === 0 || lastMessage.id < message.id) {
 							chat.messages.push(message);
@@ -119,11 +123,6 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 			var chat = $scope.findChat($scope.currentUser, user);
 
 			user.muted = !user.muted;
-
-			// if user gets muted, close its chat
-			if (user.muted && chat) {
-				$scope.closeChat(chat);
-			}
 		};
 
 		$scope.findUser = function (name) {
@@ -158,6 +157,10 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 		function recieveMessage(message) {
 			var sender = $scope.findUser(message.sender),
 				selectedUser = $scope.selectedUser;
+
+			// Muted
+			if (sender.muted)
+				return;
 
 			// If message is new, add it to the user's newMessages
 			if (!sender.lastMessageReceived || sender.lastMessageReceived.id < message.id) {

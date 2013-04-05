@@ -29,7 +29,7 @@
 				<div ng-repeat="chat in chats" id="{{chat.recipient.name}}" class="tab-pane" ng-class="{active:chat==selectedChat}">
 					<!-- Messages -->
 					<div class="messages media ">
-						<div ng-repeat="message in chat.messages" class="popover" ng-class="{right:message.sender==chat.recipient.name, left:message.sender!=chat.recipient.name}">
+						<div ng-repeat="message in chat.messages" class="popover" ng-class="{right:message.sender==chat.recipient.name, left:message.sender!=chat.recipient.name}" scroll-if="$last">
 							<div class="arrow"></div>
 							<div class="popover-content">
 								<p>{{message.content}}</p>
@@ -49,7 +49,7 @@
 
 			<div class="navbar-inner">
 				<form ng-submit="sendMessage(selectedChat, text)">
-					<input type="text" ng-model="text" class="pull-left span12" ng-disabled="!selectedChat">
+					<input type="text" ng-model="text" class="pull-left span12" ng-disabled="!selectedChat" required placeholder="Type hier je bericht" >
 					<button class="btn btn-primary pull-right" ng-disabled="!selectedChat">Verstuur</button>
 
 					<!-- Users -->

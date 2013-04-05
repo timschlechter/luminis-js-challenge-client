@@ -3,10 +3,10 @@ chatApp.controller('LoginController',
 
 		$scope.serviceUrl = 'http://localhost:8080/';
 		$scope.services = [
-				'http://localhost:8080/',
-				'http://luminisjschallenge-server.azurewebsites.net/',
 				'http://luminisjschallenge.herokuapp.com/',
-				'http://planetmarrs.xs4all.nl:8787/server/'
+				'http://planetmarrs.xs4all.nl:8787/server/',
+				'http://luminisjschallenge-server.azurewebsites.net/',
+				'http://localhost:8080/'
 			];
 
 		$scope.username = ''; // TODO: retrieve from local storage?
@@ -31,6 +31,6 @@ chatApp.controller('LoginController',
 					});
 		};
 
-		$scope.login('Tim');
+		//$scope.login('Tim');
 	}
 );
