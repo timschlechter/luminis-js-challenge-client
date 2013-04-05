@@ -1,0 +1,113 @@
+{
+    "project": {},
+    "files": {
+        "../app/js/ChatController.js": {
+            "name": "../app/js/ChatController.js",
+            "modules": {},
+            "classes": {
+                "ChatController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "../app/js/WolframAlpha.js": {
+            "name": "../app/js/WolframAlpha.js",
+            "modules": {},
+            "classes": {
+                "WolframAlpha": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "ChatController": {
+            "name": "ChatController",
+            "shortname": "ChatController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "../app/js/ChatController.js",
+            "line": 2,
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "",
+                    "type": "$scope"
+                },
+                {
+                    "name": "$location",
+                    "description": "",
+                    "type": "$location"
+                },
+                {
+                    "name": "ChatService",
+                    "description": "",
+                    "type": "ChatService"
+                },
+                {
+                    "name": "MessageObserver",
+                    "description": "",
+                    "type": "MessageObserver"
+                },
+                {
+                    "name": "WolframAlpha",
+                    "description": "",
+                    "type": "WolframAlpha"
+                }
+            ]
+        },
+        "WolframAlpha": {
+            "name": "WolframAlpha",
+            "shortname": "WolframAlpha",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "../app/js/WolframAlpha.js",
+            "line": 2,
+            "params": [
+                {
+                    "name": "ChatService",
+                    "description": "",
+                    "type": "ChatService"
+                },
+                {
+                    "name": "MessageObserver",
+                    "description": "",
+                    "type": "MessageObserver"
+                },
+                {
+                    "name": "$http",
+                    "description": "",
+                    "type": "$http"
+                }
+            ]
+        }
+    },
+    "classitems": [
+        {
+            "file": "../app/js/ChatController.js",
+            "line": 24,
+            "itemtype": "method",
+            "name": "selectUser",
+            "params": [
+                {
+                    "name": "user",
+                    "description": "",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "[type]"
+            },
+            "class": "ChatController"
+        }
+    ],
+    "warnings": []
+}

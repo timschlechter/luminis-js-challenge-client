@@ -4,6 +4,7 @@
 	"dependencies" : { 
 		"less" : "*",
 		"uglifycss" :"*",
-		"yuidocjs" : "*"
+		"yuidocjs" : "*",
+		"uglify-js" : "*"
 	} 
 }
