@@ -120,7 +120,9 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'Chat', 'ChatServic
 		}
 
 		function recieveMessage(message) {
-			console.log(message);
+
+			console.log('New message recieved from ' + message.sender);
+
 			var sender = $scope.findUser(message.sender),
 				selectedUser = $scope.selectedUser;
 
