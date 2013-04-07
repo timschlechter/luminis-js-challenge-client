@@ -1,39 +1,82 @@
-<div class="container-fluid chat" ng-class="{invisible:!currentUser}">
-	<div class="row-fluid">
+<div class="chat">
+	<!-- Navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<!-- Users -->
+				<ul class="nav pull-left users">
+					<li class="dropdown">
+						<button type="button" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+							<span class="icon-user icon-white"></span>
+						</button>
+						<ul class="dropdown-menu" ng-include src="'views/UserList.html'"></ul>
+					</li>
+				</ul>
 
-		<!-- Sidebar: only visible when > 768px -->
-		<div class="span3 sidebar">
-			<div class="well sidebar-nav onlybigscreen">
-				<li class="nav-header">Gebruikers</li>
-				 <ul class="nav nav-list userlist" ng-include src="'views/UserList.html'"></ul>
+				<!-- Options -->
+				<ul class="nav pull-right">
+					<li class="dropdown">
+						<button type="button" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+							<span class="icon-cog icon-white"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li ng-click="toggleWolframAlpha()">
+								<a>
+									Wolfram Alpha
+									<span ng-hide="wolframAlphaStarted">aanzetten</span>
+									<span ng-show="wolframAlphaStarted">uitzetten</span>
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li ng-click="logout()"><a>Afmelden</a></li>
+						</ul>
+					</li>
+				</ul>
+
+				<p class="pull-right navbar-text">
+					Aangemeld als {{currentUser.name}}&nbsp;
+				</p>
 			</div>
 		</div>
+	</div>
 
-		<!-- Content -->
-		<div class="span9 pull-right">
-			
-			<!-- Tabs: only visible when > 768px -->
-			<div class="tabs span9">
-				<ul class="nav nav-tabs">
-					<li ng-repeat="chat in chats" ng-class="{active:chat==selectedChat}" ng-click="selectUser(chat.recipient)">
-				 		<a href="#{{chat.recipient.name}}" data-toggle="tab">
-							<i class="icon-comment" ng-hide="!chat.recipient.newMessages"></i>
-				 			{{chat.recipient.name|truncate:16}}&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
-				 		</a>
-				 	</li>
-				</ul>
+	<div class="container-fluid" ng-class="{invisible:!currentUser}">
+		<div class="row-fluid">
+
+			<!-- Sidebar -->
+			<div class="span3 sidebar">
+				<div class="well sidebar-nav onlybigscreen">
+					<li class="nav-header">Gebruikers</li>
+					 <ul class="nav nav-list userlist" ng-include src="'views/UserList.html'"></ul>
+				</div>
 			</div>
 
-			<!-- Tab contents -->
-			<div class="tab-content">
-				<div ng-repeat="chat in chats" id="{{chat.recipient.name}}" class="tab-pane" ng-class="{active:chat==selectedChat}">
-					<!-- Messages -->
-					<div class="messages media ">
-						<div ng-repeat="message in chat.messages" class="popover" ng-class="{right:message.sender==chat.recipient.name, left:message.sender!=chat.recipient.name}" scroll-if="$last">
-							<div class="arrow"></div>
-							<div class="popover-content">
-								<p>{{message.content}}</p>
-								<i>{{message.timestamp | date:"dd-MM-yyyy HH:mm:ss"}}</i>
+			<!-- Content -->
+			<div class="span9 pull-right">
+				
+				<!-- Tabs -->
+				<div class="tabs span9">
+					<ul class="nav nav-tabs">
+						<li ng-repeat="chat in chats" ng-class="{active:chat==selectedChat}" ng-click="selectUser(chat.recipient)">
+					 		<a href="#{{chat.recipient.name}}" data-toggle="tab">
+								<i class="icon-comment" ng-hide="!chat.recipient.newMessages"></i>
+					 			{{chat.recipient.name|truncate:16}}&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
+					 		</a>
+					 	</li>
+					</ul>
+				</div>
+
+				<!-- Tab contents -->
+				<div class="tab-content">
+					<div ng-repeat="chat in chats" id="{{chat.recipient.name}}" class="tab-pane" ng-class="{active:chat==selectedChat}">
+						<!-- Messages -->
+						<div class="messages media ">
+							<div ng-repeat="message in chat.messages" class="popover" ng-class="{right:message.sender==chat.recipient.name, left:message.sender!=chat.recipient.name}" scroll-if="$last">
+								<div class="arrow"></div>
+								<div class="popover-content">
+									<p>{{message.content}}</p>
+									<i>{{message.timestamp | date:"dd-MM-yyyy HH:mm:ss"}}</i>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -42,50 +85,14 @@
 		</div>
 	</div>
 
-
 	<!-- Bottom toolbar -->
-	<div class="row-fluid">
-		<div class="navbar-form pull-left toolbar">
-
-			<div class="navbar-inner">
+	<div class="navbar-form navbar-fixed-bottom">
+		<div class="navbar-inner">
+			<div class="container-fluid">
 				<form ng-submit="sendMessage(selectedChat, text)" name="sendMessageForm">
-					<input type="text" ng-model="text" class="pull-left span12" ng-disabled="!selectedChat" required placeholder="Type hier je bericht" >
-					<button class="btn btn-primary pull-right" ng-disabled="!(sendMessageForm.$valid && selectedChat)">Verstuur</button>
-
-					<!-- Users -->
-					<div class="btn-group dropup pull-left">
-						<a class="btn dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-comment"></i>
-							<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu" ng-include src="'views/UserList.html'"></ul>
-					</div>
-
-					<!-- Mute -->
-					<div class="btn-group dropup pull-left">
-						<a class="btn dropdown-toggle"  data-toggle="dropdown">
-							<i class="icon-volume-off"></i>
-							<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-							<li ng-repeat="user in users" ng-click="toggleMute(user)"ng-class="{active:user.muted}">
-								<a>{{user.name|truncate:16}}</a>
-							</li>
-						</ul>
-					</div>
-
-					<!-- Options -->
-					<div class="btn-group dropup pull-left">
-						<a class="btn dropdown-toggle"  data-toggle="dropdown">
-							<i class="icon-cog"></i>
-							<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-							<li ng-click="toggleWolframAlpha()" ng-class="{active:wolframAlphaStarted}"><a>Wolfram Alpha</a></li>
-
-							<li class="divider"></li>
-							<li ng-click="logout()"><a>Afmelden</a></li>
-						</ul>
+					 <div class="input-append">
+						<input type="text" class="span11" ng-model="text" ng-disabled="!selectedChat" required placeholder="Type hier je bericht naar" >
+						<button class="clearfix btn btn-primary" ng-disabled="!(sendMessageForm.$valid && selectedChat)">Verstuur</button>
 					</div>
 				</form>
 			</div>

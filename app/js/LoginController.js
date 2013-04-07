@@ -15,11 +15,11 @@ chatApp.controller('LoginController',
 			$scope.serviceUrl = service;
 		};
 
-		$scope.login = function (username) {
-			ChatService.rootUrl = $scope.serviceUrl;
+		$scope.login = function (username, service) {
+			ChatService.rootUrl = service;
 
 			ChatService
-				.login(username || $scope.username)
+				.login(username)
 				.then(
 					// success
 					function () {
@@ -31,6 +31,6 @@ chatApp.controller('LoginController',
 					});
 		};
 
-		//$scope.login('Tim');
+		//$scope.login('Tim', 'http://localhost:8080/');
 	}
 );

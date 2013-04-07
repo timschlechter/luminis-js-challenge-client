@@ -2,9 +2,23 @@
 	padding-bottom: 40px;
 	padding-top: 60px;
 
-	.sidebar {
+	.navbar-form {
+		form {
+			margin:0px;
+		}
+	}
+
+	.sidebar, 
+	.tabs {
 		position:fixed;
-		top:10px;
+		top:0px;
+		padding-top:60px;
+		z-index: 1001;
+		background-color:white;
+	}
+
+	.sidebar-nav {
+		padding: 9px 0;
 	}
 
 	.userlist {
@@ -15,7 +29,6 @@
 				}
 
 				.icon-volume-up {
-				
 					&:hover {
 						background-position: -360px -24px;
 					}
@@ -28,14 +41,6 @@
 				}
 			}
 		}
-	}
-
-	.tabs {
-		position:fixed;
-		top:0px;
-		padding-top:10px;
-		z-index: 1001;
-		background-color:white;
 	}
 
 	.messages {
@@ -91,14 +96,43 @@
 			}
 		}
 	}
+}
 
-	.toolbar {
-		clear: both;
-		position:fixed;
-		bottom: -5px;
-		right:0px;
-		left:0px;
-		z-index: 1001;
+@media (max-width: 767px) {
+	.chat {
+		.sidebar,
+		.tabs {
+			display:none;
+		}
+	}
+
+	.container-fluid {
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 }
 
+@media (max-width: 979px) and (min-width: 768px) {
+	.chat {
+		.sidebar, 
+		.tabs {
+			padding-top:70px;
+		}
+
+		.navbar-top-fixed {
+			.users {
+				display:none;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.chat {
+		.navbar-fixed-top {
+			.users {
+				display:none;
+			}
+		}
+	}
+}
