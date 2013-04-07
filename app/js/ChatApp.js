@@ -1,7 +1,5 @@
 var chatApp =
-	angular.module('chatApp', [
-		'filters'
-	]);
+	angular.module('chatApp', []);
 
 // Routes
 chatApp.config(
@@ -25,25 +23,31 @@ chatApp.config(['$httpProvider', function ($httpProvider) {
 }]);
 
 // Add a filter for truncating text
-angular.module('filters', []).
-    filter('truncate', function () {
-        return function (text, length) {
-            if (!text)
-                return;
+chatApp.filter('truncate', function () {
+    return function (text, length) {
+        if (!text)
+            return;
 
-            if (isNaN(length))
-                length = 10;
+        if (isNaN(length))
+            length = 10;
 
-            var end = "...";
+        var end = "...";
 
-            if (text.length <= length || text.length - end.length <= length) {
-                return text;
-            }
-            else {
-                return String(text).substring(0, length-end.length) + end;
-            }
-        };
+        if (text.length <= length || text.length - end.length <= length) {
+            return text;
+        }
+        else {
+            return String(text).substring(0, length-end.length) + end;
+        }
+    };
 });
+
+// Add a filter for formatting dates
+chatApp.filter('formatdate', ['dateFilter', function (dateFilter) {
+    return function (text, format) {
+		return dateFilter(new Date(text), format);
+    };
+}]);
 
 chatApp.directive('scrollIf', function () {
 	return function (scope, element, attributes) {

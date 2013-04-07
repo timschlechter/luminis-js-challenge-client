@@ -6,7 +6,7 @@ chatApp.controller('LoginController',
 				'http://luminisjschallenge.herokuapp.com/',
 				'http://planetmarrs.xs4all.nl:8787/server/',
 				'http://luminisjschallenge-server.azurewebsites.net/',
-				'http://localhost:8080/'
+				'http://MACBOOK-TIM.local/'
 			];
 
 		$scope.username = ''; // TODO: retrieve from local storage?

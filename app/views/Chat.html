@@ -3,6 +3,18 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container-fluid">
+				<!-- Options -->
+				<ul class="nav pull-right">
+					<li class="dropdown">
+						<button type="button" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+							<span class="icon-cog icon-white"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li ng-click="logout()"><a>Afmelden</a></li>
+						</ul>
+					</li>
+				</ul>
+
 				<!-- Users -->
 				<ul class="nav pull-left users">
 					<li class="dropdown">
@@ -13,29 +25,9 @@
 					</li>
 				</ul>
 
-				<!-- Options -->
-				<ul class="nav pull-right">
-					<li class="dropdown">
-						<button type="button" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
-							<span class="icon-cog icon-white"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li ng-click="toggleWolframAlpha()">
-								<a>
-									Wolfram Alpha
-									<span ng-hide="wolframAlphaStarted">aanzetten</span>
-									<span ng-show="wolframAlphaStarted">uitzetten</span>
-								</a>
-							</li>
-							<li class="divider"></li>
-							<li ng-click="logout()"><a>Afmelden</a></li>
-						</ul>
-					</li>
-				</ul>
-
-				<p class="pull-right navbar-text">
-					Aangemeld als {{currentUser.name}}&nbsp;
-				</p>
+				<div class="brand selectedUser">
+					{{selectedUser.name}}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -45,7 +37,7 @@
 
 			<!-- Sidebar -->
 			<div class="span3 sidebar">
-				<div class="well sidebar-nav onlybigscreen">
+				<div class="well sidebar-nav">
 					<li class="nav-header">Gebruikers</li>
 					 <ul class="nav nav-list userlist" ng-include src="'views/UserList.html'"></ul>
 				</div>
@@ -74,8 +66,8 @@
 							<div ng-repeat="message in chat.messages" class="popover" ng-class="{right:message.sender==chat.recipient.name, left:message.sender!=chat.recipient.name}" scroll-if="$last">
 								<div class="arrow"></div>
 								<div class="popover-content">
-									<p>{{message.content}}</p>
-									<i>{{message.timestamp | date:"dd-MM-yyyy HH:mm:ss"}}</i>
+									<div>{{message.content}}</div>
+									<div class="date">{{message.timestamp | formatdate:"dd-MM-yyyy HH:mm:ss"}}</div>
 								</div>
 							</div>
 						</div>
@@ -86,14 +78,25 @@
 	</div>
 
 	<!-- Bottom toolbar -->
-	<div class="navbar-form navbar-fixed-bottom">
+	<div class="navbar navbar-form navbar-fixed-bottom" ng-show="selectedUser">
 		<div class="navbar-inner">
 			<div class="container-fluid">
+
 				<form ng-submit="sendMessage(selectedChat, text)" name="sendMessageForm">
-					 <div class="input-append">
-						<input type="text" class="span11" ng-model="text" ng-disabled="!selectedChat" required placeholder="Type hier je bericht naar" >
-						<button class="clearfix btn btn-primary" ng-disabled="!(sendMessageForm.$valid && selectedChat)">Verstuur</button>
+					<input type="text" class="input-block-level" ng-model="text" ng-disabled="!selectedChat" required placeholder="Type hier je bericht">
+
+					
+					<button type="button" class="btn pull-left" ng-click="toggleMute(selectedUser)" ng-class="{active: selectedUser.muted}"><i class="icon-volume-off"></i>
+					</button>
+<button class="btn btn-primary pull-right" ng-disabled="!(sendMessageForm.$valid && selectedChat)">Verstuur</button>
+					
+
+					<div class="brand selectedUser">
+						{{currentUser.name}}
 					</div>
+
+					
+					
 				</form>
 			</div>
 		</div>

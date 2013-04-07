@@ -1,10 +1,20 @@
 .chat {
-	padding-bottom: 40px;
+	padding-bottom: 50px;
 	padding-top: 60px;
+
+	.brand {
+		float:none;
+		width:100%;
+		text-align:center;
+	}
 
 	.navbar-form {
 		form {
 			margin:0px;
+
+			input[type="text"] {
+				margin-bottom:5px;
+			}
 		}
 	}
 
@@ -19,28 +29,6 @@
 
 	.sidebar-nav {
 		padding: 9px 0;
-	}
-
-	.userlist {
-		.user {
-			&:hover {
-				.invisible {
-					visibility: visible;
-				}
-
-				.icon-volume-up {
-					&:hover {
-						background-position: -360px -24px;
-					}
-				}
-
-				.icon-volume-off {
-					&:hover {
-						background-position: -408px -24px;
-					}
-				}
-			}
-		}
 	}
 
 	.messages {
@@ -58,6 +46,11 @@
 			.arrow {
 				margin-top:0px;
 				top:0px;
+			}
+
+			.date {
+				font-size:0.8em;
+				font-style: italic;
 			}
 
 			&.left {
@@ -99,6 +92,9 @@
 }
 
 @media (max-width: 767px) {
+	body {
+		padding:0px;
+	}
 	.chat {
 		.sidebar,
 		.tabs {
@@ -106,10 +102,15 @@
 		}
 	}
 
-	.container-fluid {
-		padding-left: 20px;
-		padding-right: 20px;
+	.navbar-fixed-top,
+	.navbar-fixed-bottom {
+		.container-fluid {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
 	}
+
+	
 }
 
 @media (max-width: 979px) and (min-width: 768px) {
@@ -117,12 +118,6 @@
 		.sidebar, 
 		.tabs {
 			padding-top:70px;
-		}
-
-		.navbar-top-fixed {
-			.users {
-				display:none;
-			}
 		}
 	}
 }

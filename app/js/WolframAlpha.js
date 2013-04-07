@@ -33,8 +33,6 @@ chatApp.factory('WolframAlpha', ['ChatService', 'MessageObserver', '$http',
 
 				ChatService.ensureUserExists(this.name);
 
-				ChatService.sendMessage(this.name, this.userListeningTo, 'Hello!');
-
 				// Subscribe to auto respond
 				MessageObserver.subscribe(this, this.userListeningTo, this.name, function(message) {
 
@@ -51,7 +49,7 @@ chatApp.factory('WolframAlpha', ['ChatService', 'MessageObserver', '$http',
 							ChatService.sendMessage(wolframalpha.name, message.sender, getAnswer(data));
 						})
 						.error(function() {
-							ChatService.sendMessage(wolframalpha.name, wolframalpha.userListeningTo, "Sorry, I can't talk to you right now...");
+							ChatService.sendMessage(wolframalpha.name, wolframalpha.userListeningTo, "Sorry, I'm busy talking to people on http://luminisjschallenge-server.azurewebsites.net/");
 						});
 				});
 
@@ -62,7 +60,6 @@ chatApp.factory('WolframAlpha', ['ChatService', 'MessageObserver', '$http',
 				if (!this.started)
 					return;
 
-				ChatService.sendMessage(this.name, this.userListeningTo, 'Bye!');
 				MessageObserver.unsubscribe(this, undefined, this.name);
 				this.started = false;
 			}

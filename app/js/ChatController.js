@@ -49,7 +49,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 						var lastMessage = _.last(chat.messages);
 
 						// Muted
-						if (this.sender.muted)
+						if ($scope.findUser(this.sender).muted)
 							return;
 
 						// First message or newest message
@@ -180,6 +180,8 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'ChatService', 'Mes
 		}
 
 		function init() {
+
+			WolframAlpha.start();
 
 			ChatService.getUsers()
 				.success(function (users) {
