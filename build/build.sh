@@ -25,7 +25,13 @@ cat ../app/lib/angular/angular.min.js >> ../app/assets/js/chatapp.js
 cat ../app/lib/bootstrap/js/bootstrap.min.js >> ../app/assets/js/chatapp.js
 cat ../app/lib/socket.io.js >> ../app/assets/js/chatapp.js
 
-cat ../app/js/*.js >> ../app/assets/js/chatapp.js
+cat ../app/js/ChatApp.js >> ../app/assets/js/chatapp.js
+cat ../app/js/Chat.js >> ../app/assets/js/chatapp.js
+cat ../app/js/ChatController.js >> ../app/assets/js/chatapp.js
+cat ../app/js/ChatService.js >> ../app/assets/js/chatapp.js
+cat ../app/js/LoginController.js >> ../app/assets/js/chatapp.js
+cat ../app/js/MessageObserver.js >> ../app/assets/js/chatapp.js
+cat ../app/js/WolframAlpha.js >> ../app/assets/js/chatapp.js
 cat ../app/js/**/*.js >> ../app/assets/js/chatapp.js
 
 ../node_modules/uglify-js/bin/uglifyjs ../app/assets/js/chatapp.js >> ../app/assets/js/chatapp.min.js
