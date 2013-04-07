@@ -45,7 +45,7 @@ chatApp.factory('PollingMessageObserver', ['ChatService',
 								// Callback only on messages sent by sender
 								if (!subscription.sender || message.sender === subscription.sender) {
 									subscription.observed.push(message.id);
-									subscription.callback(message);
+									subscription.callback.call(subscription.subscriber, message);
 								}
 							});
 						});

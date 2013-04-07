@@ -26,7 +26,7 @@ chatApp.factory('SocketIOMessageObserver', ['PollingMessageObserver', 'ChatServi
 										});
 				// callback
 				_.each(subscriptions, function(subscription) {
-					subscription.callback(data.message);
+					subscription.callback.call(subscription.subscriber, data.message);
 				});
 			});
 
