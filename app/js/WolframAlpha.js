@@ -60,7 +60,7 @@ chatApp.factory('WolframAlpha', ['ChatService', 'MessageObserver', '$http',
 				if (!this.started)
 					return;
 
-				MessageObserver.unsubscribe(this, undefined, this.name);
+				MessageObserver.unsubscribe(this, this.userListeningTo, this.name);
 				this.started = false;
 			}
 		};
