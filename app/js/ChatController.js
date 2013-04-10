@@ -94,9 +94,9 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'Chat', 'ChatServic
 			var chat = $scope.findChat($scope.currentUser, user);
 
 			if (user.muted) {
-				chat.stopListening();
-			} else {
 				chat.startListening();
+			} else {
+				chat.stopListening();
 			}
 
 			user.muted = !user.muted;
@@ -137,8 +137,10 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'Chat', 'ChatServic
 				selectedUser = $scope.selectedUser;
 
 			// Muted
-			if (sender.muted)
+			if (sender.muted) {
+				console.log('Message ignored, because ' +  message.sender + ' is muted');
 				return;
+			}
 
 			// If message is new, add it to the user's newMessages
 			if (!sender.lastMessageReceived || sender.lastMessageReceived.id < message.id) {

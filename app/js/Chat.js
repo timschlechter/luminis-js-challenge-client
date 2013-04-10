@@ -44,14 +44,18 @@ chatApp.factory('Chat', ['MessageObserver',
 
 			MessageObserver.subscribe(this, this.recipient.name, this.sender.name, this.recieveMessage);
 			MessageObserver.subscribe(this, this.sender.name, this.recipient.name, this.recieveMessage);
+
+			this.listening = true;
 		};
 
 		Chat.prototype.stopListening = function() {
 			if (!this.listening)
 				return;
 
-			MessageObserver.unsubscribe(this, this.recipient.name, $scope.currentUser.name);
-			MessageObserver.unsubscribe(this, $scope.currentUser.name, this.recipient.name);
+			MessageObserver.unsubscribe(this, this.recipient.name, this.sender.name);
+			MessageObserver.unsubscribe(this, this.sender.name, this.recipient.name);
+
+			this.listening = false;
 		};
 
 		return Chat;
