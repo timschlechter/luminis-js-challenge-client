@@ -1,12 +1,13 @@
 chatApp.factory('Chat', ['MessageObserver',
 	function (MessageObserver) {
 
-		function Chat (sender, recipient) {
+		function Chat (sender, recipient, messageRecieved) {
 			this.sender = sender;
 			this.recipient = recipient;
 			this.messages = [];
 			this.lastMessageReceived = null;
 			this.listening = false;
+			this.messageRecieved = messageRecieved;
 		}
 
 		Chat.prototype.constructor = Chat;
@@ -36,6 +37,10 @@ chatApp.factory('Chat', ['MessageObserver',
 					}
 				}
 			}
+
+			// callback
+			if (this.messageRecieved)
+				this.messageRecieved(message);
 		};
 
 		Chat.prototype.startListening = function() {

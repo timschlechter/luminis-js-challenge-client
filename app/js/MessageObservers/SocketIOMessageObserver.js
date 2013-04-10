@@ -22,7 +22,8 @@ chatApp.factory('SocketIOMessageObserver', ['PollingMessageObserver', 'ChatServi
 			this.socket.on('message', function(data) {
 				var subscriptions = _.filter(observer.subscriptions,
 										function(subscription) {
-											return subscription.recipient === data.recipient;
+											return ((!subscription.recipient || subscription.recipient === data.recipient) &&
+													(!subscription.sender || subscription.sender === data.message.sender));
 										});
 				// callback
 				_.each(subscriptions, function(subscription) {

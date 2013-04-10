@@ -31,6 +31,6 @@ chatApp.controller('LoginController',
 					});
 		};
 
-		//$scope.login('Tim', 'http://MACBOOK-TIM.local:8080/');
+		//$scope.login('Tim', 'http://localhost:8080/');
 	}
 );

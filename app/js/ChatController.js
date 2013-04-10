@@ -52,7 +52,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'Chat', 'ChatServic
 
 			// Create a new chat if it doesn't exist
 			if (!chat) {
-				chat = new Chat(sender, recipient);
+				chat = new Chat(sender, recipient, function() { if(!$scope.$$phase) { $scope.$digest(); } });
 
 				chat.startListening();
 
@@ -127,6 +127,10 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'Chat', 'ChatServic
 		function addUser(user) {
 			user.isCurrentUser = $scope.currentUser.name === user.name;
 			$scope.users.push(user);
+
+			if(!$scope.$$phase) {
+				$scope.$digest();
+			}
 		}
 
 		function recieveMessage(message) {
