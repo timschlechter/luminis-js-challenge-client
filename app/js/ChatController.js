@@ -180,9 +180,9 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'Chat', 'ChatServic
 
 		function destroy() {
 
-			MessageObserver.stop();
-
 			WolframAlpha.stop();
+
+			MessageObserver.stop();
 
 			// Close all chats
 			_.each($scope.chats, function (chat) { $scope.closeChat(chat); });
