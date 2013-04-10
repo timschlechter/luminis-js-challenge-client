@@ -18,6 +18,7 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'Chat', 'ChatServic
 		$scope.chats = [];
 		$scope.selectedChat = null;
 		$scope.selectedUser = null;
+		$scope.allNewMessages = null;
 
 		$scope.wolframAlphaStarted = false;
 
@@ -30,6 +31,17 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'Chat', 'ChatServic
 			$scope.selectedUser = user;
 			$scope.selectedChat = $scope.openChat($scope.currentUser, user);
 		};
+
+		$scope.$watch('users', function() {
+			var allNewMessages = [];
+
+			_.each($scope.users, function(user) {
+				if (_.isArray(user.newMessages))
+					allNewMessages = allNewMessages.concat(user.newMessages);
+			});
+
+			$scope.allNewMessages = allNewMessages.length > 0 ? allNewMessages : null;
+		}, true);
 
 		$scope.openChat = function (sender, recipient) {
 
@@ -91,7 +103,15 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'Chat', 'ChatServic
 		};
 
 		$scope.findUser = function (name) {
-			return _.find($scope.users, function (user) { return user.name === name; });
+			var user = _.find($scope.users, function (user) { return user.name === name; });
+
+			// HACK: add user if it is not known
+			if (!user) {
+				user = { name : name };
+				addUser(user);
+			}
+
+			return user;
 		};
 
 		$scope.findChat = function (sender, recipient) {
@@ -99,19 +119,9 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'Chat', 'ChatServic
 		};
 
 		$scope.logout = function () {
-
 			destroy();
 
 			$location.path("/login");
-		};
-
-		$scope.toggleWolframAlpha = function() {
-			if ($scope.wolframAlphaStarted)
-				WolframAlpha.stop();
-			else
-				WolframAlpha.start();
-
-			$scope.wolframAlphaStarted = !$scope.wolframAlphaStarted;
 		};
 
 		function addUser(user) {

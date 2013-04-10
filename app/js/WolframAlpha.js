@@ -49,7 +49,7 @@ chatApp.factory('WolframAlpha', ['ChatService', 'MessageObserver', '$http',
 							ChatService.sendMessage(wolframalpha.name, message.sender, getAnswer(data));
 						})
 						.error(function() {
-							ChatService.sendMessage(wolframalpha.name, wolframalpha.userListeningTo, "Sorry, I'm busy talking to people on http://luminisjschallenge-server.azurewebsites.net/");
+							ChatService.sendMessage(wolframalpha.name, wolframalpha.userListeningTo, "Sorry, I'm busy talking to people on http://MACBOOK-TIM.local:8080/");
 						});
 				});
 

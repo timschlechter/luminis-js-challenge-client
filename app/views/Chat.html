@@ -3,15 +3,18 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container-fluid">
+				
 				<!-- Options -->
 				<ul class="nav pull-right">
-					<li class="dropdown">
-						<button type="button" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
-							<span class="icon-cog icon-white"></span>
+					<li>
+						<!-- Mute -->
+						<button ng-show="selectedUser" type="button" class="btn btn-inverse" ng-click="toggleMute(selectedUser)" ng-class="{active: selectedUser.muted}" title="Geen berichten van {{selectedUser.name}} ontvangen"><i class="icon-volume-off icon-white"></i>
+						</button>&nbsp;
+					</li>
+					<li>
+						<button type="button" class="btn btn-inverse" ng-click="logout()" title="Afmelden">
+							<i class="icon-off icon-white"></i>
 						</button>
-						<ul class="dropdown-menu">
-							<li ng-click="logout()"><a>Afmelden</a></li>
-						</ul>
 					</li>
 				</ul>
 
@@ -19,7 +22,9 @@
 				<ul class="nav pull-left users">
 					<li class="dropdown">
 						<button type="button" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
-							<span class="icon-user icon-white"></span>
+							<i ng-class="{ 
+								'icon-user': !allNewMessages,
+								'icon-comment': allNewMessages }" class="icon-white"></i>
 						</button>
 						<ul class="dropdown-menu" ng-include src="'views/UserList.html'"></ul>
 					</li>
@@ -51,8 +56,12 @@
 					<ul class="nav nav-tabs">
 						<li ng-repeat="chat in chats" ng-class="{active:chat==selectedChat}" ng-click="selectUser(chat.recipient)">
 					 		<a href="#{{chat.recipient.name}}" data-toggle="tab">
-								<i class="icon-comment" ng-hide="!chat.recipient.newMessages"></i>
-					 			{{chat.recipient.name|truncate:16}}&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
+					 			<i ng-class="{ 
+									'icon-volume-off': chat.recipient.muted,
+									'icon-comment': chat.recipient.newMessages && !user.muted,
+									'icon-': !chat.recipient.newMessages && !user.muted}">
+								</i>
+					 			<span ng-class="{muted:chat.recipient.muted}">{{chat.recipient.name|truncate:16}}</span>&nbsp;<button class="close" type="button" ng-click="closeChat(chat)"><i class="icon-remove"></i></button>
 					 		</a>
 					 	</li>
 					</ul>
@@ -85,18 +94,11 @@
 				<form ng-submit="sendMessage(selectedChat, text)" name="sendMessageForm">
 					<input type="text" class="input-block-level" ng-model="text" ng-disabled="!selectedChat" required placeholder="Type hier je bericht">
 
+					<button class="btn btn-primary pull-right" ng-disabled="!(sendMessageForm.$valid && selectedChat)">Verstuur</button>
 					
-					<button type="button" class="btn pull-left" ng-click="toggleMute(selectedUser)" ng-class="{active: selectedUser.muted}"><i class="icon-volume-off"></i>
-					</button>
-<button class="btn btn-primary pull-right" ng-disabled="!(sendMessageForm.$valid && selectedChat)">Verstuur</button>
-					
-
 					<div class="brand selectedUser">
 						{{currentUser.name}}
 					</div>
-
-					
-					
 				</form>
 			</div>
 		</div>
