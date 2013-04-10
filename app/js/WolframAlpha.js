@@ -15,7 +15,7 @@ chatApp.factory('WolframAlpha', ['ChatService', 'MessageObserver', '$http',
 		}
 
 		return {
-			name : 'Wolfram Alpha',
+			name : 'WolframAlpha',
 
 			started : false,
 

@@ -14,7 +14,7 @@ chatApp.factory('Chat', ['MessageObserver',
 
 		Chat.prototype.recieveMessage = function(message) {
 
-			console.log('Chat[' + this.recipient.name + '] recieves message from ' + message.sender + ': ' + message.content);
+			console.log('Chat[' + this.recipient.name + '] recieves message[id=' + message.id + '] from ' + message.sender + ': ' + message.content);
 
 			var lastMessage = _.last(this.messages);
 

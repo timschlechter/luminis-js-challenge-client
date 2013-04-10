@@ -135,14 +135,14 @@ chatApp.controller('ChatController', ['$scope',	'$location', 'Chat', 'ChatServic
 
 		function recieveMessage(message) {
 
-			console.log('New message recieved from ' + message.sender);
+			console.log('New message[id=' + message.id + '] recieved from ' + message.sender);
 
 			var sender = $scope.findUser(message.sender),
 				selectedUser = $scope.selectedUser;
 
 			// Muted
 			if (sender.muted) {
-				console.log('Message ignored, because ' +  message.sender + ' is muted');
+				console.log('Message ' + message.id + ' ignored, because ' +  message.sender + ' is muted');
 				return;
 			}
 
