@@ -36,9 +36,13 @@ chatApp.factory('WolframAlpha', ['ChatService', 'MessageObserver', '$http',
 				// Subscribe to auto respond
 				MessageObserver.subscribe(this, this.userListeningTo, this.name, function(message) {
 
+					console.log(this.name + ' recieves message[id=' + message.id + '] from ' + message.sender + ': ' + message.content);
+
 					// Only response to messages received from current authenticated user
-					if (message.sender !== wolframalpha.userListeningTo)
+					if (message.sender !== wolframalpha.userListeningTo) {
+						console.log('Message ignored');
 						return;
+					}
 
 					// Only responsd when message created after starting
 					if (new Date(message.timestamp) <= timestamp)

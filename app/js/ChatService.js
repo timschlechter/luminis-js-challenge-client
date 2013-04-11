@@ -67,7 +67,7 @@ chatApp.factory('ChatService', ['$http', '$q',
 					"content": text
 				};
 
-				console.log('Send message to ' + recipient + ': ' + data);
+				console.log('Send message to ' + recipient + ': ' + text);
 
 				return $http.post(this.rootUrl + recipient, angular.toJson(data))
 							.error(this.handleHttpError);

@@ -72,7 +72,7 @@ chatApp.factory('PollingMessageObserver', ['ChatService',
 			this.subscriptions.push(subscription);
 
 			// Force once for current subscription
-			observe.apply(this, subscription, true);
+			observe.call(this, subscription, true);
 
 			return subscription;
 		};
